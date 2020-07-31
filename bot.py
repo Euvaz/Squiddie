@@ -1,6 +1,7 @@
 import discord
 import random
 from discord.ext import commands
+from discord.ext.commands.cooldowns import BucketType
 
 client = commands.Bot(command_prefix='>')
 
@@ -26,6 +27,7 @@ async def mute(ctx):
     pass
 
 
+@commands.cooldown(1, 5, commands.BucketType.user)
 @client.command()
 async def pp(ctx):
     i = random.randint(1, 10)
@@ -48,11 +50,5 @@ async def pp(ctx):
         return length.get(x, "Invalid Length")
 
     await ctx.send('8' + pp_length(i) + 'D')
-
-
-@client.command()
-async def test(ctx):
-    await ctx.send('test return')
-
 
 client.run('NzM4MzI1NDgzOTg0Mzg4MTU3.XyKRMA.WN99uZQVN0cyYSq8RwnQz7oIuCI')
