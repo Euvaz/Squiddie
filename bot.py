@@ -1,6 +1,6 @@
 import discord
+import random
 from discord.ext import commands
-import time as t
 
 client = commands.Bot(command_prefix='>')
 
@@ -24,6 +24,35 @@ async def ban(ctx):
 @client.command()
 async def mute(ctx):
     pass
+
+
+@client.command()
+async def pp(ctx):
+    i = random.randint(1, 10)
+
+    def pp_length(x):
+        length = {
+                1: '=',
+                2: '==',
+                3: '===',
+                4: '====',
+                5: '=====',
+                6: '======',
+                7: '=======',
+                8: '========',
+                9: '=========',
+                10: '==========',
+                11: '===========',
+                12: '============'
+        }
+        return length.get(x, "Invalid Length")
+
+    await ctx.send('8' + pp_length(i) + 'D')
+
+
+@client.command()
+async def test(ctx):
+    await ctx.send('test return')
 
 
 client.run('NzM4MzI1NDgzOTg0Mzg4MTU3.XyKRMA.WN99uZQVN0cyYSq8RwnQz7oIuCI')
