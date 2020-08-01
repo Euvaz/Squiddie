@@ -1,7 +1,6 @@
 import discord
 import random
 from discord.ext import commands
-from discord.ext.commands.cooldowns import BucketType
 
 client = commands.Bot(command_prefix='>')
 
@@ -11,20 +10,56 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('with FBI crime statistics'))
     print(f'{client.user} is ready')
 
+# TODO Finish 'nick' command
+# @client.command(name='nick')
+# @commands.has_permissions(change_nickname=True)
+# async def nick(ctx, *, nickname):
+#     await client.change_nickname(ctx.message.author, nickname)
 
-@client.command()
-async def kick(ctx):
-    pass
+# TODO Finish 'role' command
+# @client.command(name='role')
+# @commands.has_permissions(manage_roles=True)
+# async def role(ctx, extension):
+#     pass
 
 
-@client.command()
-async def ban(ctx):
-    pass
+@client.command(name='kick')
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, member: discord.Member, *, reason=None):
+    await member.kick(reason=reason)
+    await ctx.send(f'{member.mention} was Kicked')
 
 
-@client.command()
-async def mute(ctx):
-    pass
+@client.command(name='ban')
+@commands.has_permissions(ban_members=True)
+async def ban(ctx, member: discord.Member, *, reason=None):
+    await member.ban(reason=reason)
+    await ctx.send(f'{member.mention} was Banned')
+
+
+@client.command(name='unban')
+@commands.has_permissions(ban_members=True)
+async def unban(ctx, *, member):
+    banned_users = await ctx.guild.bans()
+    member_name, member_deiscriminator = member.split('#')
+    for ban_entry in banned_users:
+        user = ban_entry.user
+        if(user.name, user.discriminator) == (member_name, member_deiscriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f'{user.mention} was Unbanned')
+            return
+
+# TODO Finish 'mute' command
+# @client.command(name='mute')
+# @commands.has_permissions(mute_members=True)
+# async def mute(ctx):
+#     pass
+
+# TODO Finish 'unmute' command
+# @client.command(name='unmute')
+# @commands.has_permissions(mute_members=True)
+# async def unmute(ctx):
+#     pass
 
 
 @commands.cooldown(1, 5, commands.BucketType.user)
