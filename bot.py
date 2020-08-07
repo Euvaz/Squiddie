@@ -21,24 +21,19 @@ async def _nick(ctx, member: discord.Member, nick):
     await member.edit(nick=nick)
     await ctx.send(f'Nickname was changed for {member.mention}')
 
+# TODO Work on Role command(s)
 
-# Role command
-@client.group(name='role', invoke_without_command=True)
+# Role.add command
+@client.group(name='role.add')
 @commands.has_permissions(manage_roles=True)
-async def _role(ctx):
-    await ctx.send('For information regarding the "role" command, try "help role"')
+async def _roleadd(ctx):
+    await ctx.send('add')
 
-
-# Role Add subcommand
-@_role.command(name='add')
-async def _subcommand_role_add(ctx):
-    await ctx.send('Adds shit')
-
-
-# Role Remove subcommand
-@_role.command(name='remove')
-async def _subcommand_role_remove(ctx):
-    await ctx.send('Removes shit')
+# Role.remove command
+@client.command(name='role.remove')
+@commands.has_permissions(manage_roles=True)
+async def _roleremove(ctx):
+    await ctx.send('remove')
 
 
 # Kick command
