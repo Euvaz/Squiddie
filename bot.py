@@ -13,12 +13,13 @@ async def on_ready():
                                  activity=discord.Game('with FBI crime statistics'))
     print(f'{client.user} is ready')
 
+
 # Nick command
-# TODO Finish 'nick' command
-# @client.command(name='nick')
-# @commands.has_permissions(change_nickname=True)
-# async def nick(ctx, *, nickname):
-#     await client.change_nickname(ctx.message.author, nickname)
+@client.command(name='nick')
+@commands.has_permissions(change_nickname=True)
+async def _nick(ctx, member: discord.Member, nick):
+    await member.edit(nick=nick)
+    await ctx.send(f'Nickname was changed for {member.mention}')
 
 
 # Role command
@@ -118,4 +119,4 @@ async def _ball(ctx):
                                   'You may rely on it.']))
 
 
-client.run()
+client.run('NzM4MzI1NDgzOTg0Mzg4MTU3.XyKRMA.oljJyLSmH-Qo8ZoN4cfhSzdGDuM')
