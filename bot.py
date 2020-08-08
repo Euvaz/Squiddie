@@ -25,9 +25,9 @@ async def _nick(ctx, member: discord.Member, nick):
 # TODO Work on Role command(s)
 
 # Role.add command
-@client.group(name='role.add')
+@client.command(name='role.add')
 @commands.has_permissions(manage_roles=True)
-async def _roleadd(ctx, member: discord.Member, * role: discord.Role):
+async def _roleadd(ctx, member: discord.Member, *, role: discord.Role):
     await member.add_roles(role)
     await ctx.send(f'The {role} role was added to {member.mention}')
 
@@ -35,8 +35,9 @@ async def _roleadd(ctx, member: discord.Member, * role: discord.Role):
 # Role.remove command
 @client.command(name='role.remove')
 @commands.has_permissions(manage_roles=True)
-async def _roleremove(ctx):
-    await ctx.send('remove')
+async def _roleremove(ctx, member: discord.Member, *, role:discord.Role):
+    await member.remove_roles(role)
+    await ctx.send(f'The {role} role was removed from {member.mention}')
 
 
 # Kick command
