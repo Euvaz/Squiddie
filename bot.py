@@ -21,6 +21,7 @@ async def _nick(ctx, member: discord.Member, nick):
     await member.edit(nick=nick)
     await ctx.send(f'Nickname was changed for {member.mention}')
 
+
 # TODO Work on Role command(s)
 
 # Role.add command
@@ -29,6 +30,7 @@ async def _nick(ctx, member: discord.Member, nick):
 async def _roleadd(ctx, member: discord.Member, * role: discord.Role):
     await member.add_roles(role)
     await ctx.send(f'The {role} role was added to {member.mention}')
+
 
 # Role.remove command
 @client.command(name='role.remove')
@@ -80,11 +82,20 @@ async def _unban(ctx, *, member):
 # async def unmute(ctx):
 #     pass
 
+
 # Doge command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='doge')
 async def _doge(ctx):
     await ctx.send(file=discord.File('img/doge.jpg'))
+
+
+# Cheems command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='cheems')
+async def _cheems(ctx):
+    await ctx.send(file=discord.File('img/cheems.png'))
+
 
 # PP command
 @commands.cooldown(1, 5, commands.BucketType.user)
