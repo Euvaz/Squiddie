@@ -33,7 +33,7 @@ async def _roleadd(ctx, member: discord.Member, *, role: discord.Role):
 # Role.remove command
 @client.command(name='role.remove')
 @commands.has_permissions(manage_roles=True)
-async def _roleremove(ctx, member: discord.Member, *, role:discord.Role):
+async def _roleremove(ctx, member: discord.Member, *, role: discord.Role):
     await member.remove_roles(role)
     await ctx.send(f'The {role} role was removed from {member.mention}')
 
@@ -69,17 +69,22 @@ async def _unban(ctx, *, member):
 
 
 # Mute command
-# TODO Finish 'mute' command
-# @client.command(name='mute')
-# @commands.has_role('Staff')
+# TODO Add mute timer
+@client.command(name='mute')
+@commands.has_permissions(manage_roles=True)
+async def _mute(ctx, member: discord.Member):
+    role = discord.utils.get(member.guild.roles, name='Muted')
+    await member.add_roles(role)
+    await ctx.send(f'{member.mention} was muted')
 
 
 # Unmute command
-# TODO Finish 'unmute' command
-# @client.command(name='unmute')
-# @commands.has_any_role('Staff')
-# async def unmute(ctx):
-#     pass
+@client.command(name='unmute')
+@commands.has_permissions(manage_roles=True)
+async def _unmute(ctx, member: discord.Member):
+    role = discord.utils.get(member.guild.roles, name='Muted')
+    await member.remove_roles(role)
+    await ctx.send(f'{member.mention} was unmuted')
 
 
 # Doge command
