@@ -3,4 +3,4 @@
 Scripts
 
 # Ignore contents of these files
-pyenv.cfg
+pyvenv.cfg
