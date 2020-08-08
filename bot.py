@@ -22,8 +22,6 @@ async def _nick(ctx, member: discord.Member, nick):
     await ctx.send(f'Nickname was changed for {member.mention}')
 
 
-# TODO Work on Role command(s)
-
 # Role.add command
 @client.command(name='role.add')
 @commands.has_permissions(manage_roles=True)
