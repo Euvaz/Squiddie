@@ -26,8 +26,9 @@ async def _nick(ctx, member: discord.Member, nick):
 # Role.add command
 @client.group(name='role.add')
 @commands.has_permissions(manage_roles=True)
-async def _roleadd(ctx):
-    await ctx.send('add')
+async def _roleadd(ctx, member: discord.Member, * role: discord.Role):
+    await member.add_roles(role)
+    await ctx.send(f'The {role} role was added to {member.mention}')
 
 # Role.remove command
 @client.command(name='role.remove')
@@ -79,6 +80,11 @@ async def _unban(ctx, *, member):
 # async def unmute(ctx):
 #     pass
 
+# Doge command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='doge')
+async def _doge(ctx):
+    await ctx.send(file=discord.File('img/doge.jpg'))
 
 # PP command
 @commands.cooldown(1, 5, commands.BucketType.user)
