@@ -1,2 +1,6 @@
-# Ignore contents of this folder
-.vscode/
+# Ignore contents of these folders
+.vscode
+Scripts
+
+# Ignore contents of these files
+pyenv.cfg
