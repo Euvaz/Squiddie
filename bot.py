@@ -4,7 +4,7 @@ from discord.ext import commands
 from secret import discord_token
 
 
-client = commands.Bot(command_prefix='>')
+client = commands.Bot(command_prefix='>', case_insensitive=True)
 
 
 # Confirms start, and sets status
