@@ -123,6 +123,13 @@ async def _cheems(ctx):
     await ctx.send(file=discord.File('img/cheems.png'))
 
 
+# Walter command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='walter')
+async def _walter(ctx):
+    await ctx.send(file=discord.File('img/walter.png'))
+
+
 # Wow command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='wow')
