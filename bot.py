@@ -4,7 +4,7 @@ from discord.ext import commands
 from secret import discord_token
 
 
-client = commands.Bot(command_prefix='>')
+client = commands.Bot(command_prefix='>', case_insensitive=True)
 
 
 # Confirms start, and sets status
@@ -17,7 +17,7 @@ async def on_ready():
 
 # Nick command
 @client.command(name='nick')
-@commands.has_permissions(manage_nicknames=True)
+@commands.has_permissions(change_nickname=True)
 async def _nick(ctx, member: discord.Member, nick):
     if ctx.author.top_role <= member.top_role:
         await ctx.send('You lack the permissions to use this command')
