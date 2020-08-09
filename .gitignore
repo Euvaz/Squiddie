@@ -1,6 +1,7 @@
 # Ignore contents of these folders
 .vscode
 Scripts
+__pycache__
 
 # Ignore contents of these files
 pyvenv.cfg

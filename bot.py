@@ -1,6 +1,7 @@
 import discord
 import random
 from discord.ext import commands
+from secret import discord_token
 
 
 client = commands.Bot(command_prefix='>')
@@ -159,4 +160,4 @@ async def _ball(ctx):
                                   'You may rely on it.']))
 
 
-client.run('NzM4MzI1NDgzOTg0Mzg4MTU3.XyKRMA.oljJyLSmH-Qo8ZoN4cfhSzdGDuM')
+client.run(discord_token)
