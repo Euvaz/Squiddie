@@ -4,7 +4,7 @@ from discord.ext import commands
 from secret import discord_token
 
 
-client = commands.Bot(command_prefix='>', case_insensitive=True)
+client = commands.Bot(command_prefix='>')
 
 
 # Confirms start, and sets status
@@ -17,17 +17,20 @@ async def on_ready():
 
 # Nick command
 @client.command(name='nick')
-@commands.has_permissions(change_nickname=True)
+@commands.has_permissions(manage_nicknames=True)
 async def _nick(ctx, member: discord.Member, nick):
-    await member.edit(nick=nick)
-    await ctx.send(f'Nickname was changed for {member.mention}')
+    if ctx.author.top_role <= member.top_role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        await member.edit(nick=nick)
+        await ctx.send(f'Nickname was changed for {member.mention}')
 
 
 # Role.add command
 @client.command(name='role.add')
 @commands.has_permissions(manage_roles=True)
 async def _roleadd(ctx, role: discord.Role, *, member: discord.Member):
-    if ctx.author.top_role < member.top_role or ctx.author.top_role <= role:
+    if ctx.author.top_role <= role or ctx.author.top_role < member.top_role:
         await ctx.send('You lack the permissions to use this command')
     else:
         await member.add_roles(role)
@@ -38,7 +41,7 @@ async def _roleadd(ctx, role: discord.Role, *, member: discord.Member):
 @client.command(name='role.remove')
 @commands.has_permissions(manage_roles=True)
 async def _roleremove(ctx, role: discord.Role, *, member: discord.Member):
-    if ctx.author.top_role < member.top_role or ctx.author.top_role <= role:
+    if ctx.author.top_role <= role or ctx.author.top_role < member.top_role :
         await ctx.send('You lack the permissions to use this command')
     else:
         await member.remove_roles(role)
