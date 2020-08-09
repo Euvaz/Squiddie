@@ -25,33 +25,45 @@ async def _nick(ctx, member: discord.Member, nick):
 # Role.add command
 @client.command(name='role.add')
 @commands.has_permissions(manage_roles=True)
-async def _roleadd(ctx, member: discord.Member, *, role: discord.Role):
-    await member.add_roles(role)
-    await ctx.send(f'The {role} role was added to {member.mention}')
+async def _roleadd(ctx, role: discord.Role, *, member: discord.Member):
+    if ctx.author.top_role < member.top_role or ctx.author.top_role <= role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        await member.add_roles(role)
+        await ctx.send(f'The {role} role was added to {member.mention}')
 
 
 # Role.remove command
 @client.command(name='role.remove')
 @commands.has_permissions(manage_roles=True)
-async def _roleremove(ctx, member: discord.Member, *, role: discord.Role):
-    await member.remove_roles(role)
-    await ctx.send(f'The {role} role was removed from {member.mention}')
+async def _roleremove(ctx, role: discord.Role, *, member: discord.Member):
+    if ctx.author.top_role < member.top_role or ctx.author.top_role <= role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        await member.remove_roles(role)
+        await ctx.send(f'The {role} role was removed from {member.mention}')
 
 
 # Kick command
 @client.command(name='kick')
 @commands.has_permissions(kick_members=True)
 async def _kick(ctx, member: discord.Member, *, reason=None):
-    await member.kick(reason=reason)
-    await ctx.send(f'{member.mention} was Kicked')
+    if ctx.author.top_role <= member.top_role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        await member.kick(reason=reason)
+        await ctx.send(f'{member.mention} was Kicked')
 
 
 # Ban command
 @client.command(name='ban')
 @commands.has_permissions(ban_members=True)
 async def _ban(ctx, member: discord.Member, *, reason=None):
-    await member.ban(reason=reason)
-    await ctx.send(f'{member.mention} was Banned')
+    if ctx.author.top_role <= member.top_role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        await member.ban(reason=reason)
+        await ctx.send(f'{member.mention} was Banned')
 
 
 # Unban command
@@ -73,18 +85,24 @@ async def _unban(ctx, *, member):
 @client.command(name='mute')
 @commands.has_permissions(manage_roles=True)
 async def _mute(ctx, member: discord.Member):
-    role = discord.utils.get(member.guild.roles, name='Muted')
-    await member.add_roles(role)
-    await ctx.send(f'{member.mention} was muted')
+    if ctx.author.top_role <= member.top_role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        role = discord.utils.get(member.guild.roles, name='Muted')
+        await member.add_roles(role)
+        await ctx.send(f'{member.mention} was muted')
 
 
 # Unmute command
 @client.command(name='unmute')
 @commands.has_permissions(manage_roles=True)
 async def _unmute(ctx, member: discord.Member):
-    role = discord.utils.get(member.guild.roles, name='Muted')
-    await member.remove_roles(role)
-    await ctx.send(f'{member.mention} was unmuted')
+    if ctx.author.top_role <= member.top_role:
+        await ctx.send('You lack the permissions to use this command')
+    else:    
+        role = discord.utils.get(member.guild.roles, name='Muted')
+        await member.remove_roles(role)
+        await ctx.send(f'{member.mention} was unmuted')
 
 
 # Doge command
@@ -101,11 +119,17 @@ async def _cheems(ctx):
     await ctx.send(file=discord.File('img/cheems.png'))
 
 
+# Wow command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='wow')
+async def _wow(ctx):
+    await ctx.send(file=discord.File('img/wow.png'))
+
+
 # PP command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='pp')
 async def _pp(ctx):
-
     await ctx.send('8' + '=' * random.randint(1, 12) + 'D')
 
 
