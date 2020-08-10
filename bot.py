@@ -130,6 +130,13 @@ async def _walter(ctx):
     await ctx.send(file=discord.File('img/walter.png'))
 
 
+# Kitty command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='kitty')
+async def _kitty(ctx):
+    await ctx.send(file=discord.File('img/kitty.mp4'))
+
+
 # Wow command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='wow')
