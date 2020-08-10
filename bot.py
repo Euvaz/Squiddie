@@ -116,11 +116,25 @@ async def _doge(ctx):
     await ctx.send(file=discord.File('img/doge.jpg'))
 
 
+# Alpha Doge command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='alpha_doge')
+async def _alpha_doge(ctx):
+    await ctx.send(file=discord.File('img/alpha_doge.png'))
+
+
 # Cheems command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='cheems')
 async def _cheems(ctx):
     await ctx.send(file=discord.File('img/cheems.png'))
+
+
+# Beta Cheems command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='beta_cheems')
+async def _beta_cheems(ctx):
+    await ctx.send(file=discord.File('img/beta_cheems.png'))
 
 
 # Walter command
