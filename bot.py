@@ -26,6 +26,28 @@ async def _nick(ctx, member: discord.Member, nick):
         await ctx.send(f'Nickname was changed for {member.mention}')
 
 
+# Role.create command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='role.create')
+@commands.has_permissions(manage_roles=True)
+async def _rolecreate(ctx, role):
+    await ctx.guild.create_role(name=role)
+    await ctx.send(f'The "{role}" role has been created')
+
+
+
+# Role.delete command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='role.delete')
+@commands.has_permissions(manage_roles=True)
+async def _roledelete(ctx, role: discord.Role):
+    if ctx.author.top_role <= role:
+        await ctx.send('You lack the permissions to use this command')
+    else:
+        await discord.Role.delete(role)
+        await ctx.send(f'The "{role}" role has been deleted')
+
+
 # Role.add command
 @client.command(name='role.add')
 @commands.has_permissions(manage_roles=True)
@@ -137,6 +159,13 @@ async def _beta_cheems(ctx):
     await ctx.send(file=discord.File('img/beta_cheems.png'))
 
 
+# Crybaby Cheems command
+@commands.cooldown(1, 5, commands.BucketType.user)
+@client.command(name='crybaby_cheems')
+async def _crybaby_cheems(ctx):
+    await ctx.send(file=discord.File('img/crybaby_cheems.png'))
+
+
 # Walter command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='walter')
@@ -189,6 +218,16 @@ async def _ball(ctx):
                                   'Yes.',
                                   'Yes – definitely.',
                                   'You may rely on it.']))
+
+
+
+@client.command(name='exec')
+async def _sudo(ctx, command):
+    if ctx.author.id != 237415091320913921:
+        return
+    else:
+        # await ctx.send(command)
+        return
 
 
 client.run(discord_token)
