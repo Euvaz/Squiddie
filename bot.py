@@ -35,7 +35,6 @@ async def _rolecreate(ctx, role):
     await ctx.send(f'The "{role}" role has been created')
 
 
-
 # Role.delete command
 @commands.cooldown(1, 5, commands.BucketType.user)
 @client.command(name='role.delete')
@@ -129,105 +128,6 @@ async def _unmute(ctx, member: discord.Member):
         role = discord.utils.get(member.guild.roles, name='Muted')
         await member.remove_roles(role)
         await ctx.send(f'{member.mention} was unmuted')
-
-
-# Doge command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='doge')
-async def _doge(ctx):
-    await ctx.send(file=discord.File('img/doge.jpg'))
-
-
-# Alpha Doge command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='alpha_doge')
-async def _alpha_doge(ctx):
-    await ctx.send(file=discord.File('img/alpha_doge.png'))
-
-
-# Cheems command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='cheems')
-async def _cheems(ctx):
-    await ctx.send(file=discord.File('img/cheems.png'))
-
-
-# Beta Cheems command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='beta_cheems')
-async def _beta_cheems(ctx):
-    await ctx.send(file=discord.File('img/beta_cheems.png'))
-
-
-# Crybaby Cheems command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='crybaby_cheems')
-async def _crybaby_cheems(ctx):
-    await ctx.send(file=discord.File('img/crybaby_cheems.png'))
-
-
-# Walter command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='walter')
-async def _walter(ctx):
-    await ctx.send(file=discord.File('img/walter.png'))
-
-
-# Kitty command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='kitty')
-async def _kitty(ctx):
-    await ctx.send(file=discord.File('img/kitty.mp4'))
-
-
-# Wow command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='wow')
-async def _wow(ctx):
-    await ctx.send(file=discord.File('img/wow.png'))
-
-
-# PP command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='pp')
-async def _pp(ctx):
-    await ctx.send('8' + '=' * random.randint(1, 12) + 'D')
-
-
-# 8Ball command
-@commands.cooldown(1, 5, commands.BucketType.user)
-@client.command(name='8ball')
-async def _ball(ctx):
-    await ctx.send(random.choice(['As I see it, yes.',
-                                  'Ask again later.',
-                                  'Better not tell you now.',
-                                  'Cannot predict now.',
-                                  'Concentrate and ask again.',
-                                  'Don’t count on it.',
-                                  'It is certain.',
-                                  'It is decidedly so.',
-                                  'Most likely.',
-                                  'My reply is no.',
-                                  'My sources say no.',
-                                  'Outlook not so good.',
-                                  'Outlook good.',
-                                  'Reply hazy, try again.',
-                                  'Signs point to yes.',
-                                  'Very doubtful.',
-                                  'Without a doubt.',
-                                  'Yes.',
-                                  'Yes – definitely.',
-                                  'You may rely on it.']))
-
-
-
-@client.command(name='exec')
-async def _sudo(ctx, command):
-    if ctx.author.id != 237415091320913921:
-        return
-    else:
-        # await ctx.send(command)
-        return
 
 
 client.run(discord_token)

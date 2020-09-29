@@ -1,5 +1,4 @@
 # Ignore contents of these folders
-.vscode
 Scripts
 __pycache__
 
