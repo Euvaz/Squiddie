@@ -1,5 +1,6 @@
 import discord
 import random
+import requests
 from discord.ext import commands
 from secret import discord_token
 
@@ -129,7 +130,7 @@ async def _unmute(ctx, member: discord.Member):
         await member.remove_roles(role)
         await ctx.send(f'{member.mention} was unmuted')
 
-#XMR command
+# XMR command
 @client.command(name='xmr')
 async def XMR(ctx):
     r = requests.get("https://www.coindesk.com/price/monero").text
