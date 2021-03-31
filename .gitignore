@@ -1,6 +1,3 @@
-# Ignore contents of these folders
-Scripts
-__pycache__
-
-# Ignore contents of these files
-pyvenv.cfg
+/pyvenv.cfg
+/Scripts/
+/Lib/
