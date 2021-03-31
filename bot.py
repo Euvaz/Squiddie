@@ -129,5 +129,14 @@ async def _unmute(ctx, member: discord.Member):
         await member.remove_roles(role)
         await ctx.send(f'{member.mention} was unmuted')
 
+#XMR command
+@client.command(name='xmr')
+async def XMR(ctx):
+    r = requests.get("https://www.coindesk.com/price/monero").text
+    damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
+    embed = discord.Embed(title="Monero", description=f"The Current XMR Rate Is {damu}",  color=discord.Color.orange())
+    embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/200x200/328.png")
+    await ctx.channel.send(embed=embed)
+
 
 client.run(discord_token)
