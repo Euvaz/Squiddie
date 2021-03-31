@@ -130,6 +130,7 @@ async def _unmute(ctx, member: discord.Member):
         await member.remove_roles(role)
         await ctx.send(f'{member.mention} was unmuted')
 
+
 # XMR command
 @client.command(name='xmr')
 async def XMR(ctx):
@@ -139,13 +140,25 @@ async def XMR(ctx):
     embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/200x200/328.png")
     await ctx.channel.send(embed=embed)
 
-# Bitcoin Command
-@client.command()
+
+# BTC command
+@client.command(name='btc')
 async def BTC(ctx):
 	r = requests.get("https://www.coindesk.com/price/bitcoin").text
 	damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
 	embed = discord.Embed(title="Bitcoin", description=f"The Current BTC Rate Is {damu}",  color=discord.Color.gold())
 	embed.set_thumbnail(url="https://static.currency.com/img/media/bitcoin.dd8a16.png")
 	await ctx.channel.send(embed=embed)
+
+
+# ETH command
+@client.command(name='eth')
+async def ETH(ctx):
+	r = requests.get("https://www.coindesk.com/price/ethereum").text
+	damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
+	embed = discord.Embed(title="Ethereum", description=f"The Current ETH Rate Is {damu}",  color=discord.Color.greyple())
+	embed.set_thumbnail(url="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=010")
+	await ctx.channel.send(embed=embed)
+
 
 client.run(discord_token)
