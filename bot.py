@@ -139,5 +139,13 @@ async def XMR(ctx):
     embed.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/200x200/328.png")
     await ctx.channel.send(embed=embed)
 
+# Bitcoin Command
+@client.command()
+async def BTC(ctx):
+	r = requests.get("https://www.coindesk.com/price/bitcoin").text
+	damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
+	embed = discord.Embed(title="Bitcoin", description=f"The Current BTC Rate Is {damu}",  color=discord.Color.gold())
+	embed.set_thumbnail(url="https://static.currency.com/img/media/bitcoin.dd8a16.png")
+	await ctx.channel.send(embed=embed)
 
 client.run(discord_token)
