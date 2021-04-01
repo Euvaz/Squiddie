@@ -63,10 +63,12 @@ async def _iplookup(ctx, arg):
 
 
 # News command
-@commands.has_any_role('Owner')
 @client.command(name='news')
 async def _news(ctx):
-    hacker_news_run()
+    if ctx.author.id == 237415091320913921:
+        hacker_news_run()
+    else:
+        await ctx.send('You lack the permissions to use this command')
 
 
 client.run(discord_token)
