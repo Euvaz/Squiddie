@@ -3,6 +3,7 @@ import random
 import requests
 from discord.ext import commands
 from secret import discord_token
+from hacker_news import hacker_news_run
 
 
 client = commands.Bot(command_prefix='>', case_insensitive=True)
@@ -174,6 +175,12 @@ async def _iplookup(ctx, arg):
     LOCALTIME = r.split('<td>Local time</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
     embed=discord.Embed(title=f'**:white_check_mark: IP lookup results for {IP}**', description=f"{ISP}\n {COUNTRY}\n {REGION}\n {CITY}\n {TIMEZONE}\n {LOCALTIME}\n", color=discord.Color.red())
     await ctx.channel.send(embed=embed)
+
+# News command
+@commands.has_any_role('Owner')
+@client.command(name='news')
+async def _news(ctx):
+    hacker_news_run()
 
 
 client.run(discord_token)
