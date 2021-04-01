@@ -133,7 +133,7 @@ async def _unmute(ctx, member: discord.Member):
 
 # XMR command
 @client.command(name='xmr')
-async def XMR(ctx):
+async def _XMR(ctx):
     r = requests.get("https://www.coindesk.com/price/monero").text
     damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
     embed = discord.Embed(title="Monero", description=f"The Current XMR Rate Is {damu}",  color=discord.Color.orange())
@@ -143,7 +143,7 @@ async def XMR(ctx):
 
 # BTC command
 @client.command(name='btc')
-async def BTC(ctx):
+async def _BTC(ctx):
 	r = requests.get("https://www.coindesk.com/price/bitcoin").text
 	damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
 	embed = discord.Embed(title="Bitcoin", description=f"The Current BTC Rate Is {damu}",  color=discord.Color.gold())
@@ -153,7 +153,7 @@ async def BTC(ctx):
 
 # ETH command
 @client.command(name='eth')
-async def ETH(ctx):
+async def _ETH(ctx):
 	r = requests.get("https://www.coindesk.com/price/ethereum").text
 	damu = r.split('<div class="price-large">')[1].split('</div>')[0].replace('<span class="symbol">','').replace('</span>','')
 	embed = discord.Embed(title="Ethereum", description=f"The Current ETH Rate Is {damu}",  color=discord.Color.greyple())
