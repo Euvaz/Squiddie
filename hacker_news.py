@@ -4,10 +4,10 @@ import html
 import re
 
 WEBHOOK_URL = ["https://discord.com/api/webhooks/826896396351045692/NFcU1bVd9q5gFtUtZosmbcg3Kv70ciF2lTIUMVc9OL8v7blDHlQeQJb1SiQbwi8BO7wj"]
-MAX_POSTS = 3
+MAX_POSTS = 5
 TOP_POSTS_URL = 'https://hacker-news.firebaseio.com/v0/topstories.json'
 GET_ITEM_URL = 'https://hacker-news.firebaseio.com/v0/item/{}.json'
-REQUEST_HEADER = {"User-Agent": "Hacker News Top 3 Bot v1.0"}
+REQUEST_HEADER = {"User-Agent": "Hacker News Top 5 Bot v1.0"}
 
 
 def clean_text(text):
