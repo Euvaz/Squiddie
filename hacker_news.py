@@ -1,6 +1,7 @@
 import requests
 import datetime as dt
 import html
+import re
 
 WEBHOOK_URL = "https://discord.com/api/webhooks/826896396351045692/NFcU1bVd9q5gFtUtZosmbcg3Kv70ciF2lTIUMVc9OL8v7blDHlQeQJb1SiQbwi8BO7wj"
 MAX_POSTS = 3
