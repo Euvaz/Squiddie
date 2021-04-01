@@ -115,7 +115,7 @@ def send_to_webhook(posts):
         print(response.status_code)
 
 
-def main():
+def hacker_news_run():
     print("Connecting to Hacker News...")
     posts = fetch_top_posts(MAX_POSTS)
     print("Data received. Sending to webhook...")
@@ -123,4 +123,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    hacker_news_run()
