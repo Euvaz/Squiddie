@@ -7,9 +7,9 @@ These features include displaying exchange rates for several cryptocurrencies, c
 
 ## How to use Chimpanzino?
 
-The prefix for commands is `>`. For example, if you want to display the current Monero exchange rate, you type `>xmr`.
+The prefix for commands is `>`. For example, if you want to display the current Monero exchange rate, you can type `>xmr`.
 
-Full set of commands and their descriptions can be seen by typing `>help`
+Full set of commands and their descriptions can be seen by typing `>help`:
 
 ```
 No Category:
