@@ -161,4 +161,19 @@ async def _ETH(ctx):
 	await ctx.channel.send(embed=embed)
 
 
+# IPLookup command
+@client.command(name='iplookup')
+async def _iplookup(ctx, arg):
+    IP=arg
+    r = requests.get("https://check-host.net/ip-info?host=" + IP).text
+    ISP = r.split('<td>ISP</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
+    COUNTRY = r.split('<td>Country</td>')[1].split('<strong')[1].split('</strong>')[0].replace('\n','')
+    REGION = r.split('<td>Region</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
+    CITY = r.split('<td>City</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
+    TIMEZONE = r.split('<td>Time zone</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
+    LOCALTIME = r.split('<td>Local time</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
+    embed=discord.Embed(title=f'**:white_check_mark: IP lookup results for {IP}**', description=f"{ISP}\n {COUNTRY}\n {REGION}\n {CITY}\n {TIMEZONE}\n {LOCALTIME}\n", color=discord.Color.red())
+    await ctx.channel.send(embed=embed)
+
+
 client.run(discord_token)
