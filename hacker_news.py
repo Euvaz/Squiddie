@@ -3,7 +3,7 @@ import datetime as dt
 import html
 import re
 
-WEBHOOK_URL = "https://discord.com/api/webhooks/826896396351045692/NFcU1bVd9q5gFtUtZosmbcg3Kv70ciF2lTIUMVc9OL8v7blDHlQeQJb1SiQbwi8BO7wj"
+WEBHOOK_URL = ["https://discord.com/api/webhooks/826896396351045692/NFcU1bVd9q5gFtUtZosmbcg3Kv70ciF2lTIUMVc9OL8v7blDHlQeQJb1SiQbwi8BO7wj"]
 MAX_POSTS = 3
 TOP_POSTS_URL = 'https://hacker-news.firebaseio.com/v0/topstories.json'
 GET_ITEM_URL = 'https://hacker-news.firebaseio.com/v0/item/{}.json'
@@ -111,8 +111,9 @@ def send_to_webhook(posts):
         ]
     }
 
-    with requests.post(WEBHOOK_URL, json=payload) as response:
-        print(response.status_code)
+    for url in WEBHOOK_URL:
+        with requests.post(url, json=payload) as response:
+            print(response.status_code)
 
 
 def hacker_news_run():
