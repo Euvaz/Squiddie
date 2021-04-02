@@ -25,4 +25,5 @@ You can also type >help category for more info on a category.
 ```
 
 ## LICENSE
-As of April 1st 2021, Chimpanzino is private, internal software not being made available to public and the usage is limited to a single public Discord server.
+
+As of April 1st 2021, Chimpanzino is private, internal software not redistributed in public. However, it is used in a public Discord server. That still doesn't make it possible to obtain a copy of it. 
