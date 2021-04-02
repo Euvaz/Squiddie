@@ -2,12 +2,20 @@ import requests
 import datetime as dt
 import html
 import re
+import schedule
 
 WEBHOOK_URL = ["https://discord.com/api/webhooks/826896396351045692/NFcU1bVd9q5gFtUtZosmbcg3Kv70ciF2lTIUMVc9OL8v7blDHlQeQJb1SiQbwi8BO7wj"]
 MAX_POSTS = 5
 TOP_POSTS_URL = 'https://hacker-news.firebaseio.com/v0/topstories.json'
 GET_ITEM_URL = 'https://hacker-news.firebaseio.com/v0/item/{}.json'
 REQUEST_HEADER = {"User-Agent": "Hacker News Top 5 Bot v1.0"}
+
+
+def hacker_news():
+    schedule.every().day.at("12:00").do(hacker_news_run)
+
+    while True:
+        schedule.run_pending()
 
 
 def clean_text(text):
@@ -123,5 +131,5 @@ def hacker_news_run():
     send_to_webhook(posts)
 
 
-if __name__ == "__main__":
-    hacker_news_run()
+if __name__ == '__main__':
+    hacker_news()
