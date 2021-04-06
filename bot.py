@@ -1,6 +1,7 @@
 import discord
 import random
 import requests
+import wikipedia
 from discord.ext import commands
 from secret import discord_token
 from hacker_news import hacker_news_run
@@ -51,7 +52,7 @@ def main():
     # IPLookup command
     @client.command(name='iplookup')
     async def _iplookup(ctx, arg):
-        IP=arg
+        IP = arg
         r = requests.get("https://check-host.net/ip-info?host=" + IP).text
         ISP = r.split('<td>ISP</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
         COUNTRY = r.split('<td>Country</td>')[1].split('<strong')[1].split('</strong>')[0].replace('\n','')
@@ -59,8 +60,16 @@ def main():
         CITY = r.split('<td>City</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
         TIMEZONE = r.split('<td>Time zone</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
         LOCALTIME = r.split('<td>Local time</td>')[1].split('<td')[1].split('</td>')[0].replace('\n','')
-        embed=discord.Embed(title=f'**:white_check_mark: IP lookup results for {IP}**', description=f"{ISP}\n {COUNTRY}\n {REGION}\n {CITY}\n {TIMEZONE}\n {LOCALTIME}\n", color=discord.Color.red())
+        embed = discord.Embed(title=f'**:white_check_mark: IP lookup results for {IP}**', description=f"{ISP}\n {COUNTRY}\n {REGION}\n {CITY}\n {TIMEZONE}\n {LOCALTIME}\n", color=discord.Color.red())
         await ctx.channel.send(embed=embed)
+
+
+    # Wikipedia command
+    @client.command(name='wikipedia', aliases=['wiki'])
+    async def _wikipedia(ctx, *, arg):
+        search = arg
+
+        await ctx.send(wikipedia.summary(search, sentences=3, auto_suggest=False))
 
 
     # News command
