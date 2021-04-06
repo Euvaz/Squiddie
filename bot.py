@@ -9,6 +9,7 @@ from hacker_news import hacker_news_run
 def main():
 
     client = commands.Bot(command_prefix='>', case_insensitive=True)
+    client.remove_command('help')
 
 
     # Confirms start, and sets status
@@ -68,8 +69,45 @@ def main():
     @client.command(name='wikipedia', aliases=['wiki'])
     async def _wikipedia(ctx, *, arg):
         search = arg
+        # global current_language
 
-        await ctx.send(wikipedia.summary(search, sentences=3, auto_suggest=False))
+        try:
+            page_content = wikipedia.page(search)
+            page_text = wikipedia.summary(search, sentences=5)
+
+            try:
+                thumbnail = page_content.images[randint(0, len(page_content.images))]
+
+            except:
+                thumbnail = "https://www.wikipedia.org/static/images/project-logos/enwiki.png"
+
+            embed = discord.Embed(title=search, color=0x853DE4, description=page_text + '\n\n[Read further]({})'.format(page_content.url))
+            embed.set_thumbnail(url=thumbnail)
+            await ctx.send(embed=embed)
+
+        except wikipedia.DisambiguationError:
+
+            NotSpecificRequestErrorMessage = "Sorry, your search request wasn't specific enough. Please try '/w search (your request)'."
+            embed = discord.Embed(title='Bad request: ', color=0x853DE4, description=NotSpecificRequestErrorMessage)
+            embed.add_field(name='Related Searches: (WIP)', value="Item 1\nItem 2\n Item 3\n Etc.")
+            embed.set_thumbnail(url="https://www.wikipedia.org/static/images/project-logos/enwiki.png")
+            await ctx.send(embed=embed)
+
+        except wikipedia.PageError:
+
+            NoResultErrorMessage = "Sorry, no matching Wikipedia articles could be found with that title. Please see the related search items provided"
+            embed = discord.Embed(title='Not found: ', color=0xe853DE4, description=NoResultErrorMessage)
+            embed.add_field(name='Related Searches: (WIP)', value="Item 1\nItem 2\n Item 3\n Etc.")
+            embed.set_thumbnail(url="https://www.wikipedia.org/static/images/project-logos/enwiki.png")
+            await ctx.send(embed=embed)
+
+        except Exception as error:
+
+            print(error)
+            RandomErrorMessage = "Sorry, a random error occured"
+            embed = discord.Embed(title='Error', color=0x992D22, description=RandomErrorMessage)
+            embed.set_thumbnail(url="https://www.wikipedia.org/static/images/project-logos/enwiki.png")
+            await ctx.send(embed=embed)
 
 
     # News command
