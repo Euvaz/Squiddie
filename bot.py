@@ -69,7 +69,6 @@ def main():
     @client.command(name='wikipedia', aliases=['wiki'])
     async def _wikipedia(ctx, *, arg):
         search = arg
-        # global current_language
 
         try:
             page_content = wikipedia.page(search)
