@@ -1,6 +1,6 @@
 # Chimpanzino
 
-Chimpanzino is a small Discord chat bot created to serve the needs of it's authors' by having several features that they haven't found in other bots. 
+Chimpanzino is a small Discord chat bot created to serve the needs of it's authors' by providing them with several features that they haven't found in other bots. 
 
 These features include displaying exchange rates for several cryptocurrencies, creating a feed of popular Hacker News posts in a channel or giving approximate location of an IP address. 
 
@@ -25,4 +25,5 @@ You can also type >help category for more info on a category.
 ```
 
 ## LICENSE
-As of April 1st 2021, Chimpanzino is private, internal software not being made available to public and the usage is limited to a single public Discord server.
+
+As of April 1st 2021, Chimpanzino is private, internal software not redistributed in public. However, it is used in a public Discord server. That still doesn't make it possible to obtain a copy of it. 
