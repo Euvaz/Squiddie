@@ -5,9 +5,7 @@ from discord.ext import commands
 from secret import discord_token
 from hacker_news import hacker_news_run
 
-
 def main():
-
 
     client = commands.Bot(command_prefix='>', case_insensitive=True)
 
@@ -77,5 +75,5 @@ def main():
     client.run(discord_token)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
