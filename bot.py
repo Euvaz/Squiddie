@@ -86,17 +86,25 @@ def main():
 
         except wikipedia.DisambiguationError:
 
-            NotSpecificRequestErrorMessage = "Sorry, your search request wasn't specific enough. Please try '/w search (your request)'."
-            embed = discord.Embed(title='Bad request: ', color=0x853DE4, description=NotSpecificRequestErrorMessage)
-            embed.add_field(name='Related Searches: (WIP)', value="Item 1\nItem 2\n Item 3\n Etc.")
+            NotSpecificRequestErrorMessage = "Sorry, your search request wasn't specific enough. Please see the related search items provided"
+            embed = discord.Embed(title='Bad request:', color=0x853DE4, description=NotSpecificRequestErrorMessage)
+
+            search_results = wikipedia.search(search, results=10, suggestion=False)
+            search_results_joined = '\n'.join(search_results)
+
+            embed.add_field(name='Related Searches:', value=search_results_joined)
             embed.set_thumbnail(url="https://www.wikipedia.org/static/images/project-logos/enwiki.png")
             await ctx.send(embed=embed)
 
         except wikipedia.PageError:
 
             NoResultErrorMessage = "Sorry, no matching Wikipedia articles could be found with that title. Please see the related search items provided"
-            embed = discord.Embed(title='Not found: ', color=0xe853DE4, description=NoResultErrorMessage)
-            embed.add_field(name='Related Searches: (WIP)', value="Item 1\nItem 2\n Item 3\n Etc.")
+            embed = discord.Embed(title='Not found:', color=0x853DE4, description=NoResultErrorMessage)
+
+            search_results = wikipedia.search(search, results=10, suggestion=False)
+            search_results_joined = '\n'.join(search_results)
+
+            embed.add_field(name='Related Searches:', value=search_results_joined)
             embed.set_thumbnail(url="https://www.wikipedia.org/static/images/project-logos/enwiki.png")
             await ctx.send(embed=embed)
 
