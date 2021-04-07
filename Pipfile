@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "~=2.25.1"
+schedule = "~=1.0.0"
+python-dotenv = "*"
+discord = "*"
+wikipedia = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
