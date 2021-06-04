@@ -30,10 +30,15 @@ Pipenv is required with Python 3.9
 ### Setup virtual env
 
 1. Install pipenv
+
    `pip install -U pipenv`
+
 2. Setup pienv env
+   
    `pipenv --python 3.9`
+
 3. Install the requirements
+   
    `pipenv install`
 
 ### Activating the virtual env
