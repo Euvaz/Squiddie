@@ -2,6 +2,7 @@
 /Scripts/
 /Lib/
 /.idea/
+/__pycache__
 
 # env file 
 .env
