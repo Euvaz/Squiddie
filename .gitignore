@@ -4,4 +4,4 @@
 /.idea/
 
 # env file 
-# .env # block when you must 
+.env
