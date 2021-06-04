@@ -15,6 +15,7 @@ discord_token = os.environ.get("DISCORD_TOKEN")
 client = commands.Bot(command_prefix=">", case_insensitive=True)
 client.remove_command("help")
 
+
 # Confirms start, and sets status
 @client.event
 async def on_ready():
