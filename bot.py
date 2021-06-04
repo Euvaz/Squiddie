@@ -3,9 +3,7 @@ import random
 import requests
 import wikipedia
 from discord.ext import commands
-from secret import discord_token
 from hacker_news import hacker_news_run
-
 import os
 import dotenv
 
