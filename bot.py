@@ -18,81 +18,26 @@ github_token = os.environ.get("GITHUB_TOKEN")
 # Initializing Github
 g = Github(github_token)
 
+
 client = commands.Bot(command_prefix=">", case_insensitive=True)
 client.remove_command("help")
 
 
-@client.event
-async def on_ready():
-    """Confirm start, set status."""
-    await client.change_presence(
-        status=discord.Status.online,
-        activity=discord.Game("with FBI crime statistics"),
-    )
-    print(f"{client.user} is ready")
+@client.command()
+async def load(ctx, extension):
+    """Load cogs."""
+    client.load_extension(f'cogs.{extension}')
 
 
-# XMR command
-@client.command(name="xmr")
-async def _XMR(ctx):
-    r = requests.get("https://www.coindesk.com/price/monero").text
-    damu = (
-        r.split('<div class="price-large">')[1]
-        .split("</div>")[0]
-        .replace('<span class="symbol">', "")
-        .replace("</span>", "")
-    )
-    embed = discord.Embed(
-        title="Monero",
-        description=f"The Current XMR Rate Is {damu}",
-        color=discord.Color.orange(),
-    )
-    embed.set_thumbnail(
-        url="https://s2.coinmarketcap.com/static/img/coins/200x200/328.png"
-    )
-    await ctx.channel.send(embed=embed)
+@client.command()
+async def unload(ctx, extension):
+    """Unload cogs."""
+    client.unload_extension(f'cogs.{extension}')
 
 
-# BTC command
-@client.command(name="btc")
-async def _BTC(ctx):
-    r = requests.get("https://www.coindesk.com/price/bitcoin").text
-    damu = (
-        r.split('<div class="price-large">')[1]
-        .split("</div>")[0]
-        .replace('<span class="symbol">', "")
-        .replace("</span>", "")
-    )
-    embed = discord.Embed(
-        title="Bitcoin",
-        description=f"The Current BTC Rate Is {damu}",
-        color=discord.Color.gold(),
-    )
-    embed.set_thumbnail(
-        url="https://static.currency.com/img/media/bitcoin.dd8a16.png"
-    )
-    await ctx.channel.send(embed=embed)
-
-
-# ETH command
-@client.command(name="eth")
-async def _ETH(ctx):
-    r = requests.get("https://www.coindesk.com/price/ethereum").text
-    damu = (
-        r.split('<div class="price-large">')[1]
-        .split("</div>")[0]
-        .replace('<span class="symbol">', "")
-        .replace("</span>", "")
-    )
-    embed = discord.Embed(
-        title="Ethereum",
-        description=f"The Current ETH Rate Is {damu}",
-        color=discord.Color.greyple(),
-    )
-    embed.set_thumbnail(
-        url="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=010"
-    )
-    await ctx.channel.send(embed=embed)
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[:-3]}')
 
 
 # IPLookup command
@@ -138,11 +83,11 @@ async def _iplookup(ctx, arg):
     )
     embed = discord.Embed(
         title="**:white_check_mark: IP lookup results for {}**".format(IP),
-        description="{}\n ".format(ISP) +
-        + "{}\n ".format(COUNTRY) +
-        + "{}\n ".format(REGION) +
-        + "{}\n ".format(CITY) +
-        + "{}\n ".format(TIMEZONE) +
+        description="{}\n ".format(ISP)
+        + "{}\n ".format(COUNTRY)
+        + "{}\n ".format(REGION)
+        + "{}\n ".format(CITY)
+        + "{}\n ".format(TIMEZONE)
         + "{}\n".format(LOCALTIME),
         color=discord.Color.red(),
     )
@@ -169,7 +114,7 @@ async def _wikipedia(ctx, *, arg):
         embed = discord.Embed(
             title=search,
             color=0x853DE4,
-            description=page_text +
+            description=page_text
             + "\n\n[Read further]({})".format(page_content.url),
         )
         embed.set_thumbnail(url=thumbnail)
@@ -214,7 +159,7 @@ async def _wikipedia(ctx, *, arg):
     except Exception as error:
 
         print(error)
-        RandomErrorMessage = "Sorry, a random error occured"
+        RandomErrorMessage = "Sorry, a random error occurred"
         embed = discord.Embed(
             title="Error", color=0x992D22, description=RandomErrorMessage
         )
