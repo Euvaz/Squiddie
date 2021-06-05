@@ -224,7 +224,7 @@ async def _wikipedia(ctx, *, arg):
         await ctx.send(embed=embed)
 
 
-# Wikipedia command
+# Github command
 @client.command(name="github", aliases=["git"])
 async def _github(ctx, *, arg):
 
