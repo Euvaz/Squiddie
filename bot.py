@@ -4,6 +4,7 @@ import discord
 import random
 import requests
 import wikipedia
+from github import Github
 from discord.ext import commands
 from hacker_news import hacker_news_run
 import os
@@ -13,6 +14,9 @@ import dotenv
 dotenv.load_dotenv()
 discord_token = os.environ.get("DISCORD_TOKEN")
 github_token = os.environ.get("GITHUB_TOKEN")
+
+# Initializing Github
+g = Github(github_token)
 
 client = commands.Bot(command_prefix=">", case_insensitive=True)
 client.remove_command("help")
@@ -218,6 +222,45 @@ async def _wikipedia(ctx, *, arg):
             url="https://www.wikipedia.org/static/images/project-logos/enwiki.png"
         )
         await ctx.send(embed=embed)
+
+
+# Wikipedia command
+@client.command(name="github", aliases=["git"])
+async def _github(ctx, *, arg):
+
+    search = arg.split(' ')[0]
+
+    try:
+        count = int(arg.split(' ')[1])
+
+    except IndexError:
+        count = 5
+
+    except ValueError:
+        await ctx.send("Please enter a type (int) for the second field")
+
+    result = g.search_repositories(search, 'stars', 'desc')
+
+    repos = []
+    urls = []
+    for repo in result[:count]:
+        repos.append(repo.name)
+        urls.append(repo.clone_url)
+
+    listings = []
+    for repo, url in zip(repos, urls):
+        listings.append("[{}]({})".format(repo, url))
+
+    listings_joined = "\n".join(listings)
+
+    embed = discord.Embed(
+        title="Github: {}".format(search),
+        color=0x853DE4,
+        description="Listing results for \"{}\"".format(search)
+    )
+    embed.add_field(name="Top {} Search Results".format(count), value=listings_joined)
+
+    await ctx.send(embed=embed)
 
 
 # News command
