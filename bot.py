@@ -232,6 +232,10 @@ async def _github(ctx, *, arg):
 
     try:
         count = int(arg.split(' ')[1])
+        if count > 10:
+            count = 10
+        elif count <= 0:
+            count = 5
 
     except IndexError:
         count = 5
