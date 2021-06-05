@@ -150,7 +150,7 @@ async def _iplookup(ctx, arg):
 
 
 # Wikipedia command
-@client.command(name="wikipedia", aliases=["wiki"])
+@client.command(name="wiki", aliases=["wikipedia"])
 async def _wikipedia(ctx, *, arg):
     search = arg
 
@@ -225,7 +225,7 @@ async def _wikipedia(ctx, *, arg):
 
 
 # Github command
-@client.command(name="github", aliases=["git"])
+@client.command(name="git", aliases=["github"])
 async def _github(ctx, *, arg):
 
     search = arg.split(' ')[0]
