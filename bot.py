@@ -1,3 +1,5 @@
+"""Main bot code for Chimpanzino."""
+
 import discord
 import random
 import requests
@@ -10,15 +12,15 @@ import dotenv
 
 dotenv.load_dotenv()
 discord_token = os.environ.get("DISCORD_TOKEN")
-
+github_token = os.environ.get("GITHUB_TOKEN")
 
 client = commands.Bot(command_prefix=">", case_insensitive=True)
 client.remove_command("help")
 
 
-# Confirms start, and sets status
 @client.event
 async def on_ready():
+    """Confirm start, set status."""
     await client.change_presence(
         status=discord.Status.online,
         activity=discord.Game("with FBI crime statistics"),
@@ -131,8 +133,13 @@ async def _iplookup(ctx, arg):
         .replace("\n", "")
     )
     embed = discord.Embed(
-        title=f"**:white_check_mark: IP lookup results for {IP}**",
-        description=f"{ISP}\n {COUNTRY}\n {REGION}\n {CITY}\n {TIMEZONE}\n {LOCALTIME}\n",
+        title="**:white_check_mark: IP lookup results for {}**".format(IP),
+        description="{}\n ".format(ISP) +
+        + "{}\n ".format(COUNTRY) +
+        + "{}\n ".format(REGION) +
+        + "{}\n ".format(CITY) +
+        + "{}\n ".format(TIMEZONE) +
+        + "{}\n".format(LOCALTIME),
         color=discord.Color.red(),
     )
     await ctx.channel.send(embed=embed)
@@ -152,13 +159,13 @@ async def _wikipedia(ctx, *, arg):
                 random.randint(0, len(page_content.images))
             ]
 
-        except:
+        except wikipedia.WikipediaException:
             thumbnail = "https://www.wikipedia.org/static/images/project-logos/enwiki.png"
 
         embed = discord.Embed(
             title=search,
             color=0x853DE4,
-            description=page_text
+            description=page_text +
             + "\n\n[Read further]({})".format(page_content.url),
         )
         embed.set_thumbnail(url=thumbnail)
