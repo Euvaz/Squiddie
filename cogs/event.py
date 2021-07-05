@@ -2,9 +2,7 @@
 
 import discord
 from discord.ext import commands
-from discord.ext import tasks
-
-from hacker_news import hacker_news_run
+from cogs.news import News
 
 
 class Event(commands.Cog):
@@ -17,8 +15,8 @@ class Event(commands.Cog):
     # Events
     @commands.Cog.listener()
     async def on_ready(self):
-        """Start news task."""
-        self._news.start()
+        """Start tasks."""
+        News.news.start(News(self))
 
         """Confirm start, set status."""
         await self.client.change_presence(
@@ -31,11 +29,6 @@ class Event(commands.Cog):
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
             await ctx.send(f"Command not recognized.")
-
-    # Tasks
-    @tasks.loop(hours=24)
-    async def _news(self):
-        hacker_news_run()
 
 
 def setup(client):
