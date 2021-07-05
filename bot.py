@@ -7,9 +7,9 @@ import dotenv
 
 dotenv.load_dotenv()
 discord_token = os.environ.get("DISCORD_TOKEN")
+PREFIX = "!ch "
 
-
-client = commands.Bot(command_prefix="!ch ", case_insensitive=True)
+client = commands.Bot(command_prefix=PREFIX, case_insensitive=True)
 client.remove_command("help")
 
 
