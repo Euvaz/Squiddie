@@ -32,6 +32,10 @@ class Event(commands.Cog):
         print(f"{get_time()} {self.client.user} is ready")
 
     @commands.Cog.listener()
+    async def on_command(self, ctx):
+        print(f"{get_time()} Command \"{ctx.command}\" was executed")
+
+    @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
             await ctx.send(f"Command not recognized.")
