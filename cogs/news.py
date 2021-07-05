@@ -121,8 +121,7 @@ class News(commands.Cog):
         }
 
         for url in self.WEBHOOK_URL:
-            with requests.post(url, json=payload) as response:
-                print(response.status_code)
+            requests.post(url, json=payload)
 
     # News command
     @tasks.loop(hours=24)
@@ -131,9 +130,7 @@ class News(commands.Cog):
         :type self: News
         :rtype News:
         """
-        print("Connecting to Hacker News...")
         posts = self.fetch_top_posts(self.MAX_POSTS)
-        print("Data received. Sending to webhook...")
         self.send_to_webhook(posts)
 
 
