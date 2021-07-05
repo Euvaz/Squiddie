@@ -2,7 +2,13 @@
 
 import discord
 from discord.ext import commands
+from datetime import datetime as dt
 from cogs.news import News
+
+
+def get_time():
+    time = dt.now().strftime('[%H:%M:%S]')
+    return time
 
 
 class Event(commands.Cog):
@@ -23,7 +29,7 @@ class Event(commands.Cog):
             status=discord.Status.online,
             activity=discord.Game("with FBI crime statistics"),
         )
-        print(f"{self.client.user} is ready")
+        print(f"{get_time()} {self.client.user} is ready")
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
