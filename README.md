@@ -1,14 +1,14 @@
-# Chimpanzino
+# Squiddie
 
-Chimpanzino is a small Discord chat bot created to serve the needs of it's authors' by providing them with several features that they would prefer to have more control over.
+Squiddie is a small Discord chat bot created to serve the needs of it's authors' by providing them with several features that they would prefer to have more control over.
 
 These features include displaying exchange rates for several cryptocurrencies, generating a feed of the most recent Hacker News posts, or giving general information relating to a provided IP address.
 
-## How to use Chimpanzino?
+## How to use Squiddie?
 
-The prefix for commands is `>`. For example, if you want to display the current Monero exchange rate, you can type `>xmr`.
+The prefix for commands is `!sq `. For example, if you want to display the current Monero exchange rate, you can type `!sq xmr`.
 
-Full set of commands and their descriptions can be seen by typing `>help`:
+Full set of commands and their descriptions can be seen by typing `!sq help`:
 
 ```
 No Category:
@@ -51,4 +51,4 @@ You could also run the activation inline using the following method
 
 ## LICENSE
 
-As of April 1st 2021, Chimpanzino is private, internal software not redistributed to the public. However, it is used in a public Discord server. Despite this fact, the code itself is not available to the public.
+As of April 1st 2021, Squiddie is private, internal software not redistributed to the public. However, it is used in a public Discord server. Despite this fact, the code itself is not available to the public.
