@@ -1,4 +1,4 @@
-"""Main bot code for Chimpanzino."""
+"""Main bot code for Squiddie."""
 
 from discord.ext import commands
 import logging
@@ -20,7 +20,7 @@ discord_token = os.environ.get("DISCORD_TOKEN")
 
 
 # Initialize bot
-PREFIX = "!ch "
+PREFIX = "!sq "
 client = commands.Bot(command_prefix=PREFIX, case_insensitive=True)
 client.remove_command("help")
 
