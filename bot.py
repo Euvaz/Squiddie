@@ -29,6 +29,7 @@ client = commands.Bot(command_prefix=PREFIX, case_insensitive=True)
 client.remove_command("help")
 
 
+# Load cogs
 @client.command()
 async def load(ctx, extension):
     """Load cogs."""
