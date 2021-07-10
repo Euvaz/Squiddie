@@ -59,7 +59,7 @@ class _Github(commands.Cog):
 
 
 # Initializing Github with token
-github_token = os.environ.get("GITHUB_TOKEN")
+github_token = os.environ.get("GIT_TOKEN")
 g = Github(github_token)
 
 
