@@ -19,8 +19,8 @@ No Category:
   news
   xmr
 
-Type >help command for more info on a command.
-You can also type >help category for more info on a category.
+Type !sq help command for more info on a command.
+You can also type !sq help category for more info on a category.
 ```
 
 ## Install
