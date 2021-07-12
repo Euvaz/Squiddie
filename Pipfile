@@ -9,6 +9,7 @@ schedule = "~=1.0.0"
 python-dotenv = "*"
 discord = "*"
 wikipedia = "*"
+aiohttp = ">=3.7.4"
 
 [dev-packages]
 
