@@ -77,7 +77,6 @@ class _Wikipedia(commands.Cog):
 
         except Exception as error:
 
-            print(error)
             RandomErrorMessage = "Sorry, a random error occurred"
             embed = discord.Embed(
                 title="Error", color=0x992D22, description=RandomErrorMessage
