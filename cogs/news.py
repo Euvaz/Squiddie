@@ -6,7 +6,11 @@ import requests
 import datetime as dt
 import html
 import re
+import dotenv
 
+# Load .env variable
+dotenv.load_dotenv()
+WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 
 def clean_text(text):
     cleaned_text = html.unescape(re.sub(re.compile('<.*?>'), '', text))
@@ -23,8 +27,7 @@ class News(commands.Cog):
     def __init__(self, client):
         """Initialize."""
         self.client = client
-        self.WEBHOOK_URL = [
-            "https://discord.com/api/webhooks/826896396351045692/NFcU1bVd9q5gFtUtZosmbcg3Kv70ciF2lTIUMVc9OL8v7blDHlQeQJb1SiQbwi8BO7wj"]
+        self.WEBHOOK_URL = WEBHOOK_URL
         self.MAX_POSTS = 5
         self.TOP_POSTS_URL = 'https://hacker-news.firebaseio.com/v0/topstories.json'
         self.GET_ITEM_URL = 'https://hacker-news.firebaseio.com/v0/item/{}.json'
