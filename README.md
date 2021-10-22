@@ -51,4 +51,5 @@ You could also run the activation inline using the following method
 
 ## LICENSE
 
-As of April 1st 2021, Squiddie is private, internal software not redistributed to the public. However, it is used in a public Discord server. Despite this fact, the code itself is not available to the public.
+As of 21-Oct-2021, Squiddie is now public, fully open to the public. Contributions are welcome, and appreciated.
+Squiddie is now licensed under GPLv2.
