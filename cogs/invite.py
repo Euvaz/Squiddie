@@ -14,7 +14,10 @@ class Invite(commands.Cog):
     # Invite command
     @commands.command(name="invite")
     async def _infract(self, ctx, *, arg):
-        pass
+        inviteChannelID = 822606443722309642
+        inviteURL = await ctx.guild.get_channel(inviteChannelID).create_invite()
+        await ctx.send(f'Here is the invite link!: {inviteURL}')
+
 
 
 def setup(client):
