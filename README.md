@@ -33,7 +33,7 @@ Pipenv is required with Python 3.9
 
    `pip install -U pipenv`
 
-2. Setup pienv env
+2. Setup pipenv env
    
    `pipenv --python 3.9`
 
@@ -51,5 +51,5 @@ You could also run the activation inline using the following method
 
 ## LICENSE
 
-As of 21-Oct-2021, Squiddie is now public, fully open to the public. Contributions are welcome, and appreciated.
+As of 21-Oct-2021, Squiddie is no longer private, and is now fully open to the public. Contributions are welcome, and appreciated.
 Squiddie is now licensed under GPLv2.

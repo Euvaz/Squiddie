@@ -13,7 +13,7 @@ class Infract(commands.Cog):
 
     # Infract command
     @commands.command(name="infract")
-    async def _infract(self, ctx, *, arg):
+    async def infract(self, ctx, *, arg):
         pass
 
 

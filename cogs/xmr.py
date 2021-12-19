@@ -2,7 +2,8 @@
 
 import discord
 from discord.ext import commands
-import requests
+import http.client
+import json
 
 
 class XMR(commands.Cog):
@@ -14,18 +15,19 @@ class XMR(commands.Cog):
 
     # XMR command
     @commands.command(name="xmr")
-    async def _xmr(self, ctx):
+    async def xmr(self, ctx):
         """Display XMR exchange rate."""
-        r = requests.get("https://www.coindesk.com/price/monero").text
-        damu = (
-            r.split('<div class="price-large">')[1]
-                .split("</div>")[0]
-                .replace('<span class="symbol">', "")
-                .replace("</span>", "")
-        )
+        conn = http.client.HTTPSConnection("api.coincap.io")
+        payload = ''
+        headers = {}
+        conn.request("GET", "/v2/assets/monero", payload, headers)
+        res = conn.getresponse()
+        data = res.read().decode("utf-8")
+        price = json.loads(data)['data']['priceUsd']
+
         embed = discord.Embed(
             title="Monero",
-            description=f"The Current XMR Rate Is {damu}",
+            description=f"The Current XMR Rate Is: ${price}",
             color=discord.Color.orange(),
         )
         embed.set_thumbnail(

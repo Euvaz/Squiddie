@@ -1,4 +1,4 @@
-"""Class file for Wikipedia."""
+"""Class file for Wiki."""
 
 import discord
 from discord.ext import commands
@@ -6,16 +6,16 @@ import random
 import wikipedia
 
 
-class _Wikipedia(commands.Cog):
-    """Wikipedia class."""
+class Wiki(commands.Cog):
+    """Wiki class."""
 
     def __init__(self, client):
         """Initialize."""
         self.client = client
 
-    # Wikipedia command
+    # Wiki command
     @commands.command(name="wiki", aliases=["wikipedia"])
-    async def _wikipedia(self, ctx, *, arg):
+    async def wiki(self, ctx, *, arg):
         search = arg
 
         try:
@@ -89,4 +89,4 @@ class _Wikipedia(commands.Cog):
 
 def setup(client):
     """Load cog."""
-    client.add_cog(_Wikipedia(client))
+    client.add_cog(Wiki(client))
