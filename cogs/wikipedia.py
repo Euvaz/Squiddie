@@ -89,4 +89,4 @@ class Wikipedia(commands.Cog):
 
 def setup(client):
     """Load cog."""
-    client.add_cog(_Wikipedia(client))
+    client.add_cog(Wikipedia(client))
