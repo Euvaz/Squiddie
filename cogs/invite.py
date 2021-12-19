@@ -13,7 +13,7 @@ class Invite(commands.Cog):
 
     # Invite command
     @commands.command(name="invite")
-    async def _infract(self, ctx, *, arg):
+    async def invite(self, ctx, *, arg):
         pass
 
 

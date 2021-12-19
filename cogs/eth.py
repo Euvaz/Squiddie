@@ -14,7 +14,7 @@ class ETH(commands.Cog):
 
     # ETH command
     @commands.command(name="eth")
-    async def _btc(self, ctx):
+    async def eth(self, ctx):
         """Display ETH exchange rate."""
         r = requests.get("https://www.coindesk.com/price/ethereum").text
         damu = (

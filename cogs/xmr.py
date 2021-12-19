@@ -14,7 +14,7 @@ class XMR(commands.Cog):
 
     # XMR command
     @commands.command(name="xmr")
-    async def _xmr(self, ctx):
+    async def xmr(self, ctx):
         """Display XMR exchange rate."""
         r = requests.get("https://www.coindesk.com/price/monero").text
         damu = (

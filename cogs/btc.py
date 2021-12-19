@@ -14,7 +14,7 @@ class BTC(commands.Cog):
 
     # BTC command
     @commands.command(name="btc")
-    async def _btc(self, ctx):
+    async def btc(self, ctx):
         """Display BTC exchange rate."""
         r = requests.get("https://www.coindesk.com/price/bitcoin").text
         damu = (

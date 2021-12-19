@@ -6,7 +6,7 @@ import random
 import wikipedia
 
 
-class _Wikipedia(commands.Cog):
+class Wikipedia(commands.Cog):
     """Wikipedia class."""
 
     def __init__(self, client):
@@ -15,7 +15,7 @@ class _Wikipedia(commands.Cog):
 
     # Wikipedia command
     @commands.command(name="wiki", aliases=["wikipedia"])
-    async def _wikipedia(self, ctx, *, arg):
+    async def wikipedia(self, ctx, *, arg):
         search = arg
 
         try:
