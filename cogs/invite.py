@@ -13,7 +13,7 @@ class Invite(commands.Cog):
 
     # Invite command
     @commands.command(name="invite")
-    async def invite(self, ctx, *, arg):
+    async def invite(self, ctx):
         inviteChannelID = 822606443722309642
         inviteURL = await ctx.guild.get_channel(inviteChannelID).create_invite()
         await ctx.send(f'Here is the invite link!: {inviteURL}')
