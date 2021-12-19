@@ -26,7 +26,7 @@ discord_token = os.environ.get("DISCORD_TOKEN")
 # Initialize bot
 PREFIX = "!sq "
 client = commands.Bot(command_prefix=PREFIX, case_insensitive=True)
-client.remove_command("help")
+#client.remove_command("help")
 
 
 # Load cogs
