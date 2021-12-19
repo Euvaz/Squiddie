@@ -14,6 +14,7 @@ class Invite(commands.Cog):
     # Invite command
     @commands.command(name="invite")
     async def invite(self, ctx):
+        """Generate a temporary (1-hour) invite link."""
         inviteChannelID = 822606443722309642
         inviteURL = await ctx.guild.get_channel(inviteChannelID).create_invite(max_age=3600)
         await ctx.send(f'Here is the invite link!: {inviteURL}')
