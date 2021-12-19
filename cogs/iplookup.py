@@ -15,6 +15,7 @@ class IPLookup(commands.Cog):
     # IPLookup command
     @commands.command(name="iplookup")
     async def iplookup(self, ctx, arg):
+        """Display general IP information."""
         ip = arg
         r = requests.get("https://check-host.net/ip-info?host=" + ip).text
         isp = (
