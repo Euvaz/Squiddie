@@ -16,6 +16,7 @@ class Wiki(commands.Cog):
     # Wiki command
     @commands.command(name="wiki", aliases=["wikipedia"])
     async def wiki(self, ctx, *, arg):
+        """Provide Wikipedia information given user input."""
         search = arg
 
         try:
