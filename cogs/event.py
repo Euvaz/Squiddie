@@ -3,7 +3,6 @@
 import discord
 from discord.ext import commands
 from datetime import datetime as dt
-from cogs.news import News
 
 
 def get_time():
@@ -22,7 +21,6 @@ class Event(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         """Start tasks."""
-        News.news.start(News(self))
 
         """Confirm start, set status."""
         await self.client.change_presence(
