@@ -10,6 +10,8 @@ python-dotenv = "*"
 discord = "*"
 wikipedia = "*"
 aiohttp = ">=3.7.4"
+youtube-dl = "~=2021.12.17"
+pynacl = "~=1.4.0"
 
 [dev-packages]
 
