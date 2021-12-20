@@ -38,12 +38,12 @@ class Music(commands.Cog):
             self.is_playing = True
 
             # Get first URL of list
-            m_url = self.music_queue[0][0]['source']
+            media_url = self.music_queue[0][0]['source']
 
             # Remove song from list when played
             self.music_queue.pop(0)
 
-            self.vc.play(discord.FFmpegPCMAudio(m_url, **self.FFMPEG_OPTIONS), after=lambda e: self.play_next())
+            self.vc.play(discord.FFmpegPCMAudio(media_url, **self.FFMPEG_OPTIONS), after=lambda e: self.play_next())
         else:
             self.is_playing = False
 
@@ -52,7 +52,8 @@ class Music(commands.Cog):
         if len(self.music_queue) > 0:
             self.is_playing = True
 
-            m_url = self.music_queue[0][0]['source']
+            # Get first URL of list
+            media_url = self.music_queue[0][0]['source']
             
             # Connect to voice channel if not connected
             if self.vc == "" or not self.vc.is_connected() or self.vc == None:
@@ -63,7 +64,7 @@ class Music(commands.Cog):
             # Remove song from list when played
             self.music_queue.pop(0)
 
-            self.vc.play(discord.FFmpegPCMAudio(m_url, **self.FFMPEG_OPTIONS), after=lambda e: self.play_next())
+            self.vc.play(discord.FFmpegPCMAudio(media_url, **self.FFMPEG_OPTIONS), after=lambda e: self.play_next())
         else:
             self.is_playing = False
 
@@ -105,7 +106,7 @@ class Music(commands.Cog):
 
     # Skip command
     @commands.command(name="skip")
-    async def skip(self, ctx):
+    async def skip(self):
         """Skip current song being played."""
         if self.vc != "" and self.vc:
             self.vc.stop()
