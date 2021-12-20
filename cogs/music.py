@@ -23,6 +23,7 @@ class Music(commands.Cog):
 
         self.vc = ""
 
+
     # Search for item on YouTube
     def search_yt(self, item):
         with YoutubeDL(self.YDL_OPTIONS) as ydl:
@@ -47,6 +48,7 @@ class Music(commands.Cog):
         else:
             self.is_playing = False
 
+
     # Prevent infinite loop
     async def play_music(self):
         if len(self.music_queue) > 0:
@@ -67,6 +69,7 @@ class Music(commands.Cog):
             self.vc.play(discord.FFmpegPCMAudio(media_url, **self.FFMPEG_OPTIONS), after=lambda e: self.play_next())
         else:
             self.is_playing = False
+
 
     # Play command
     @commands.command(name="play")
@@ -90,6 +93,7 @@ class Music(commands.Cog):
                 if self.is_playing == False:
                     await self.play_music()
 
+
     # Queue command
     @commands.command(name="queue")
     async def queue(self, ctx):
@@ -104,6 +108,7 @@ class Music(commands.Cog):
         else:
             await ctx.send("No music in queue")
 
+
     # Skip command
     @commands.command(name="skip")
     async def skip(self):
@@ -111,6 +116,7 @@ class Music(commands.Cog):
         if self.vc != "" and self.vc:
             self.vc.stop()
             await self.play_music()
+
 
     # Disconnect command
     @commands.command(name="disconnect")
