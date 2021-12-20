@@ -43,7 +43,7 @@ Pipenv is required with Python 3.9
 
 ### Activating the virtual env
 
-You need to activate the virtual env before run the code
+You need to activate the virtual env before running the code
 `pipenv shell`
 
 You could also run the activation inline using the following method
