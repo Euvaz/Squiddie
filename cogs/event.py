@@ -25,8 +25,8 @@ class Event(commands.Cog):
         """Confirm start, set status."""
         await self.client.change_presence(
             status=discord.Status.online,
-            activity=discord.Streaming(name="Le Fishe au chocolat",
-                                       url='https://www.youtube.com/watch?v=3uQzdlVsLXY'),
+            activity=discord.Streaming(name="A bucket of chicken",
+                                       url='https://www.youtube.com/watch?v=9vQxzovbDUs'),
         )
         print(f"{get_time()} {self.client.user} is ready")
 
