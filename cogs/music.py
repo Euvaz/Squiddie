@@ -377,9 +377,11 @@ class Music(commands.Cog):
             await player.np.delete()
         except discord.HTTPException:
             pass
-
-        player.np = await ctx.send(f'**Now Playing:** `{vc.source.title}` '
-                                   f'requested by `{vc.source.requester}`')
+        
+        embed = discord.Embed(title = f"Now Playing: {vc.source.title}",
+            url = str(vc.source.url),
+            description = f"Now Playing: {vc.source.title} \n Requested By: {vc.source.requester} \n Next Up: {list(itertools.islice(player.queue._queue, 0, 0))[0]['title']}")
+        player.np = await ctx.send(embed=embed)
 
     @commands.command(name='volume', aliases=['vol'])
     async def change_volume(self, ctx, *, vol: float):
