@@ -408,7 +408,7 @@ class Music(commands.Cog):
             vc.source.volume = vol / 100
 
         player.volume = vol / 100
-        # await ctx.send(f'**`{ctx.author}`**: Set the volume to **{vol}%**')
+        await ctx.send(f'**`{ctx.author}`**: Set the volume to **{vol}%**')
 
     @commands.command(name='stop')
     async def stop_(self, ctx):
