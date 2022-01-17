@@ -89,8 +89,10 @@ class YTDLSource(discord.PCMVolumeTransformer):
         if 'entries' in data:
             # take first item from a playlist
             data = data['entries'][0]
-
-        await ctx.send(f'```ini\n[Added {data["title"]} to the Queue.]\n```', delete_after=15)
+        # Checks if the player is already playing a song, if it is, says "added to queue" as confirmation
+        vc = ctx.voice_client
+        if vc or vc.is_playing():
+            await ctx.send(f'```ini\n[Added {data["title"]} to the Queue.]\n```')
 
         if download:
             source = ytdl.prepare_filename(data)
@@ -309,7 +311,7 @@ class Music(commands.Cog):
             return
 
         vc.pause()
-        # await ctx.send(f'**`{ctx.author}`**: Paused the song!')
+        # REMOVE : await ctx.send(f'**`{ctx.author}`**: Paused the song!')
 
     @commands.command(name='resume')
     async def resume_(self, ctx):
@@ -322,7 +324,7 @@ class Music(commands.Cog):
             return
 
         vc.resume()
-        # await ctx.send(f'**`{ctx.author}`**: Resumed the song!')
+        # REMOVE : await ctx.send(f'**`{ctx.author}`**: Resumed the song!')
 
     @commands.command(name='skip')
     async def skip_(self, ctx):
