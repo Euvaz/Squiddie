@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "~=2.25.1"
+schedule = "~=1.0.0"
+python-dotenv = "*"
+discord = "*"
+wikipedia = "*"
+aiohttp = ">=3.7.4"
+youtube-dl = "~=2021.12.17"
+pynacl = "~=1.4.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
