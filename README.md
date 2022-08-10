@@ -8,6 +8,8 @@ Squiddie is a Discord chat bot intended to provide music player functionality, i
 - [Installation](https://github.com/euvaz/squiddie#installation)
   - [Docker](https://github.com/euvaz/squiddie#docker)
   - [Manual](https://github.com/euvaz/squiddie#manual)
+    - [Setup virtual env](https://github.com/euvaz/squiddie#setup-virtual-env)
+    - [Activate virtual env](https://github.com/euvaz/squiddie#activate-virtual-env)
 - [License](https://github.com/euvaz/squiddie#license)
 
 ## Usage
@@ -61,7 +63,7 @@ TODO: Add support for dockerfiles and docker-compose for quick and scalable depl
    
    `pipenv install`
 
-#### Activating the virtual env
+#### Activate virtual env
 
 You need to activate the virtual env before running the code
 `pipenv shell`
