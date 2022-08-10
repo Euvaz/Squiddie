@@ -11,13 +11,32 @@ The prefix for commands is `!sq `. For example, if you want to display the curre
 Full set of commands and their descriptions can be seen by typing `!sq help`:
 
 ```
+IPLookup:
+  iplookup    Display general IP information.
+Infract:
+  infract     
+Invite:
+  invite      Generate a temporary (1-hour) single use invite link.
+Misc:
+  chicken     Think fast chucklenuts.
+Music:
+  connect     Connect to voice.
+  now_playing Display information about the currently playing song.
+  pause       Pause the currently playing song.
+  play        Request a song and add it to the queue.
+  queue       Retrieve a basic queue of upcoming songs.
+  resume      Resume the currently paused song.
+  skip        Skip the song.
+  stop        Stop the currently playing song and destroy the player.
+  volume      Change the player volume.
+Wiki:
+  wiki        Provide Wikipedia information given user input.
+XMR:
+  xmr         Display XMR exchange rate.
 No Category:
-  btc
-  eth
-  help     Shows this message
-  iplookup
-  news
-  xmr
+  help        Shows this message
+  load        Load cogs.
+  unload      Unload cogs.
 
 Type !sq help command for more info on a command.
 You can also type !sq help category for more info on a category.
