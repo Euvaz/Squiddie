@@ -6,6 +6,7 @@ Squiddie is a Discord chat bot intended to provide music player functionality, i
 
 - [Usage](https://github.com/euvaz/squiddie#usage)
 - [Installation](https://github.com/euvaz/squiddie#installation)
+  - [Configuration](https://github.com/euvaz/squiddie#configuration)
   - [Docker](https://github.com/euvaz/squiddie#docker)
   - [Manual](https://github.com/euvaz/squiddie#manual)
     - [Setup virtual env](https://github.com/euvaz/squiddie#setup-virtual-env)
@@ -42,34 +43,62 @@ You can also type !sq help category for more info on a category.
 
 ## Installation
 
+### Configuration
+
+Firstly, it is necessary to update the environment and application files respectively
+
+```sh
+$ cp .env_sample .env && cp application_sample.yaml application.yaml
+```
+
+After copying over the sample files, set their values accordingly
+
+### Execution
+
+There are two methods of running the bot, [Docker](https://github.com/euvaz/squiddie#Docker) (Recommended) or [Manual](https://github.com/euvaz/squiddie#manual)
+
 ### Docker
 
-TODO: Add support for dockerfiles and docker-compose for quick and scalable deployments
+Build image and run as daemon
+
+```sh
+$ docker compose up -d
+```
 
 ### Manual
-> Pipenv is required with Python 3.9
+
+> Poetry is recommended to be used with Python version 3.10
 
 #### Setup virtual env
 
-1. Install pipenv
+1. Install Poetry
 
-   `pip install -U pipenv`
+    ```sh
+    $ pip3 install -U poetry
+    ```
 
-2. Setup pipenv env
+2. Initialize Poetry
    
-   `pipenv --python 3.9`
-
-3. Install the requirements
-   
-   `pipenv install`
+    ```sh
+    $ poetry init
+    ```
 
 #### Activate virtual env
 
-You need to activate the virtual env before running the code
-`pipenv shell`
+There are two methods for running the project.
 
-You could also run the activation inline using the following method
-`pipenv run python <path to script>`
+1. Inline - Recommended method due to simplicity
+    
+    ```sh
+    $ poetry run python3 -m squiddie
+    ```
+
+2. Out-of-line - Useful for debugging
+
+    ```sh
+    $ poetry shell
+    $ python3 -m squiddie
+    ```
 
 ## License
 

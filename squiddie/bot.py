@@ -1,7 +1,6 @@
 """Main bot code for Squiddie."""
 
 import os
-import miru
 import aiohttp
 import lightbulb
 import concurrent.futures
@@ -27,7 +26,6 @@ bot = lightbulb.BotApp (
         #},
 )
 
-miru.load(bot)
 tasks.load(bot)
 
 

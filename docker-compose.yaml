@@ -1,0 +1,32 @@
+version: "3.1"
+
+services:
+  lavalink:
+    container_name: lavalink
+    image: fredboat/lavalink:latest
+    restart: on-failure:3
+    ports:
+      - 2333:2333
+    network_mode: host
+    volumes:
+      - ./application.yaml:/opt/Lavalink/application.yaml
+      - ./logs:/opt/Lavalink/logs
+    entrypoint: java -Xmx512m -jar Lavalink.jar
+
+  squiddie:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure:3
+    tty: true
+    depends_on:
+      - lavalink
+    env_file:
+      - .env
+    network_mode: host
+
+  watchtower:
+    image: v2tec/watchtower
+    restart: on-failure:3
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
