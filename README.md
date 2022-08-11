@@ -15,30 +15,47 @@ Squiddie is a Discord chat bot intended to provide music player functionality, i
 
 ## Usage
 
-The prefix for commands is `!sq `. For example, if you want to generate a temporary (1-hour) single use invite link, this can be done via `!sq invite`.
+This bot fully utilizes Discord's new Slash commands feature. Commands can be executed by running `/[Command] {Options}`.
 
-Full set of commands and their descriptions can be seen by typing `!sq help`:
+Full set of commands and their descriptions can be seen by typing `/help {Options}`:
 
 ```
-Invite:
-  invite      Generate a temporary (1-hour) single use invite link.
-Music:
-  connect     Connect to voice.
-  now_playing Display information about the currently playing song.
-  pause       Pause the currently playing song.
-  play        Request a song and add it to the queue.
-  queue       Retrieve a basic queue of upcoming songs.
-  resume      Resume the currently paused song.
-  skip        Skip the song.
-  stop        Stop the currently playing song and destroy the player.
-  volume      Change the player volume.
-No Category:
-  help        Shows this message
-  load        Load cogs.
-  unload      Unload cogs.
+==== Bot Help ====
 
-Type !sq help command for more info on a command.
-You can also type !sq help category for more info on a category.
+For more information: /help [command|category]
+
+==== Categories ====
+- Music
+```
+
+For more detailed information on a category, you can specify the category name.
+
+For example, `/help Music`:
+
+```
+==== Category Help ====
+Music - No description provided
+
+== Prefix Commands
+- play - Searches the query on youtube, or adds the URL to the queue.
+- leave - Leaves the voice channel the bot is in, clearing the queue.
+- skip - Skips the current song.
+- join - Joins the voice channel you are in.
+- data - Load or read data from the node.
+- resume - Resumes playing the current song.
+- stop - Stops the current song (skip to continue).
+- pause - Pauses the current song.
+- nowplaying - Gets the song that's currently playing.
+== Slash Commands
+- play - Searches the query on youtube, or adds the URL to the queue.
+- leave - Leaves the voice channel the bot is in, clearing the queue.
+- skip - Skips the current song.
+- join - Joins the voice channel you are in.
+- data - Load or read data from the node.
+- resume - Resumes playing the current song.
+- stop - Stops the current song (skip to continue).
+- pause - Pauses the current song.
+- nowplaying - Gets the song that's currently playing.
 ```
 
 ## Installation
