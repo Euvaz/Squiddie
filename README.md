@@ -44,24 +44,30 @@ You can also type !sq help category for more info on a category.
 
 ### Docker
 
-TODO: Add support for dockerfiles and docker-compose for quick and scalable deployments
+Build image and run as daemon
+
+```sh
+$ docker compose up -d
+```
+
 
 ### Manual
+
 > Poetry is recommended to be used with Python version 3.10
 
 #### Setup virtual env
 
 1. Install Poetry
 
-   ```
-   $ pip3 install -U poetry
-   ```
+    ```sh
+    $ pip3 install -U poetry
+    ```
 
 2. Initialize Poetry
    
-   ```
-   $ poetry init
-   ```
+    ```sh
+    $ poetry init
+    ```
 
 #### Activate virtual env
 
@@ -69,13 +75,13 @@ There are two methods for running the project.
 
 1. Inline - Recommended method due to simplicity
     
-    ```
+    ```sh
     $ poetry run python3 -m squiddie
     ```
 
 2. Out-of-line - Useful for debugging
 
-    ```
+    ```sh
     $ poetry shell
     $ python3 -m squiddie
     ```
