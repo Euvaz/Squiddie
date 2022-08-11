@@ -4,16 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "~=2.25.1"
-schedule = "~=1.0.0"
-python-dotenv = "*"
-discord = "*"
-wikipedia = "*"
-aiohttp = ">=3.7.4"
-youtube-dl = "~=2021.12.17"
-pynacl = "~=1.4.0"
+aiohttp = "==3.8.1"
+hikari = "==2.0.0.dev110"
+hikari-lightbulb = "==2.2.4"
+hikari-miru = "==1.1.2"
+lavasnek-rs = "==0.1.0a5"
+miru = "==0.2.0"
+python-dotenv = "==0.20.0"
+uvloop = "==0.16.0"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
