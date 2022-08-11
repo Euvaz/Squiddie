@@ -47,29 +47,38 @@ You can also type !sq help category for more info on a category.
 TODO: Add support for dockerfiles and docker-compose for quick and scalable deployments
 
 ### Manual
-> Pipenv is required with Python 3.9
+> Poetry is recommended to be used with Python version 3.10
 
 #### Setup virtual env
 
-1. Install pipenv
+1. Install Poetry
 
-   `pip install -U pipenv`
+   ```
+   $ pip3 install -U poetry
+   ```
 
-2. Setup pipenv env
+2. Initialize Poetry
    
-   `pipenv --python 3.9`
-
-3. Install the requirements
-   
-   `pipenv install`
+   ```
+   $ poetry init
+   ```
 
 #### Activate virtual env
 
-You need to activate the virtual env before running the code
-`pipenv shell`
+There are two methods for running the project.
 
-You could also run the activation inline using the following method
-`pipenv run python <path to script>`
+1. Inline - Recommended method due to simplicity
+    
+    ```
+    $ poetry run python3 -m squiddie
+    ```
+
+2. Out-of-line - Useful for debugging
+
+    ```
+    $ poetry shell
+    $ python3 -m squiddie
+    ```
 
 ## License
 
