@@ -3,7 +3,7 @@ from typing import Optional
 
 import hikari
 import lightbulb
-from consts import LAVALINK_SERVER, LAVALINK_PORT, LAVALINK_PASSWORD, PREFIX
+from consts import LAVALINK_SERVER, LAVALINK_PORT, LAVALINK_PASSWORD
 
 import lavasnek_rs
 
@@ -134,7 +134,7 @@ async def play(ctx: lightbulb.Context) -> None:
         # `.queue()` To add the track to the queue rather than starting to play the track now.
         await plugin.bot.d.lavalink.play(ctx.guild_id, query_information.tracks[0]).requester(ctx.author.id).queue()
     except lavasnek_rs.NoSessionPresent:
-        await ctx.respond(f"Use `{PREFIX}join` first")
+        await ctx.respond(f"Use `/join` first")
         return
 
     await ctx.respond(f"Added to queue: {query_information.tracks[0].info.title}")

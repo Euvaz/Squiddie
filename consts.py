@@ -1,6 +1,5 @@
 import os
 
-PREFIX = "!sq "
 DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 LAVALINK_SERVER = os.environ["LAVALINK_SERVER"]
 LAVALINK_PORT = os.environ["LAVALINK_PORT"]
