@@ -6,6 +6,7 @@ Squiddie is a Discord chat bot intended to provide music player functionality, i
 
 - [Usage](https://github.com/euvaz/squiddie#usage)
 - [Installation](https://github.com/euvaz/squiddie#installation)
+  - [Configuration](https://github.com/euvaz/squiddie#configuration)
   - [Docker](https://github.com/euvaz/squiddie#docker)
   - [Manual](https://github.com/euvaz/squiddie#manual)
     - [Setup virtual env](https://github.com/euvaz/squiddie#setup-virtual-env)
@@ -42,6 +43,20 @@ You can also type !sq help category for more info on a category.
 
 ## Installation
 
+### Configuration
+
+Firstly, it is necessary to update the environment and application files respectively
+
+```sh
+$ cp .env_sample .env && cp application_sample.yaml application.yaml
+```
+
+After copying over the sample files, set their values accordingly
+
+### Execution
+
+There are two methods of running the bot, [Docker](https://github.com/euvaz/squiddie#Docker) (Recommended) or [Manual](https://github.com/euvaz/squiddie#manual)
+
 ### Docker
 
 Build image and run as daemon
@@ -49,7 +64,6 @@ Build image and run as daemon
 ```sh
 $ docker compose up -d
 ```
-
 
 ### Manual
 
