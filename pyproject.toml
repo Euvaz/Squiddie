@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "squiddie"
+version = "0.1.0"
+description = "Discord bot with music player functionality"
+authors = ["euvaz <ee470189-bbb3-46d9-923e-0db31876ec86@aleeas.com>"]
+license = "GPLv2"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+aiohttp = "^3.8.1"
+hikari-lightbulb = "^2.2.4"
+hikari = "^2.0.0-alpha.110"
+hikari-miru = "^1.1.2"
+lavasnek-rs = "^0.1.0-alpha.5"
+python-dotenv = "^0.20.0"
+uvloop = "^0.16.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
