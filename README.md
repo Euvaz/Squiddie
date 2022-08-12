@@ -72,7 +72,7 @@ After copying over the sample files, set their values accordingly.
 
 ### Execution
 
-There are two methods of running the bot, [Docker](https://github.com/euvaz/squiddie#Docker) (Recommended) or [Manual](https://github.com/euvaz/squiddie#manual). Utilizing the docker method is recommended, as the docker-compose will automatically create a self-hosted [Lavalink](https://github.com/freyacodes/Lavalink) instance.
+There are two methods of running the bot, [Docker](https://github.com/euvaz/squiddie#docker) (Recommended) or [Manual](https://github.com/euvaz/squiddie#manual). Utilizing the docker method is recommended, as the docker-compose will automatically create a self-hosted [Lavalink](https://github.com/freyacodes/Lavalink) instance.
 
 ### Docker
 
