@@ -4,6 +4,12 @@ services:
   lavalink:
     container_name: lavalink
     image: fredboat/lavalink:latest
+    healthcheck:
+      test: java HealthCheck.java || exit 1
+      interval: 5s
+      retries: 4
+      start_period: 5s
+      timeout: 10s
     restart: on-failure:3
     ports:
       - 2333:2333
@@ -11,6 +17,7 @@ services:
     volumes:
       - ./application.yaml:/opt/Lavalink/application.yaml
       - ./logs:/opt/Lavalink/logs
+      - ./HealthCheck.java:/opt/Lavalink/HealthCheck.java
     entrypoint: java -Xmx512m -jar Lavalink.jar
 
   squiddie:
@@ -21,7 +28,8 @@ services:
     restart: on-failure:3
     tty: true
     depends_on:
-      - lavalink
+      lavalink:
+        condition: service_healthy
     network_mode: host
 
   watchtower:
