@@ -7,6 +7,7 @@ Squiddie is a Discord chat bot intended to provide music player functionality, i
 - [Usage](https://github.com/euvaz/squiddie#usage)
 - [Installation](https://github.com/euvaz/squiddie#installation)
   - [Configuration](https://github.com/euvaz/squiddie#configuration)
+  - [Execution](https://github.com/euvaz/squiddie#execution)
   - [Docker](https://github.com/euvaz/squiddie#docker)
   - [Manual](https://github.com/euvaz/squiddie#manual)
     - [Setup virtual env](https://github.com/euvaz/squiddie#setup-virtual-env)
@@ -62,17 +63,17 @@ Music - No description provided
 
 ### Configuration
 
-Firstly, it is necessary to update the environment and application files respectively
+Firstly, it is necessary to update the environment and application files respectively.
 
 ```sh
 $ cp .env_sample .env && cp application_sample.yaml application.yaml
 ```
 
-After copying over the sample files, set their values accordingly
+After copying over the sample files, set their values accordingly.
 
 ### Execution
 
-There are two methods of running the bot, [Docker](https://github.com/euvaz/squiddie#Docker) (Recommended) or [Manual](https://github.com/euvaz/squiddie#manual). Utilizing the docker method is recommended, as the docker-compose will automatically create a self-hosted [Lavalink](https://github.com/freyacodes/Lavalink) instance.
+There are two methods of running the bot, [Docker](https://github.com/euvaz/squiddie#docker) (Recommended) or [Manual](https://github.com/euvaz/squiddie#manual). Utilizing the docker method is recommended, as the docker-compose will automatically create a self-hosted [Lavalink](https://github.com/freyacodes/Lavalink) instance.
 
 ### Docker
 
@@ -85,7 +86,7 @@ LAVALINK_PORT = 2333
 ...
 ```
 
-Build image and run as daemon
+Build image and run as daemon:
 
 ```sh
 $ docker compose up -d
@@ -93,17 +94,17 @@ $ docker compose up -d
 
 ### Manual
 
-> Poetry is recommended to be used with Python version 3.10
+> Poetry is recommended to be used with Python version 3.10.
 
 #### Setup virtual env
 
-1. Install Poetry
+1. Install Poetry:
 
     ```sh
     $ pip3 install -U poetry
     ```
 
-2. Initialize Poetry
+2. Initialize Poetry:
    
     ```sh
     $ poetry init
@@ -113,13 +114,13 @@ $ docker compose up -d
 
 There are two methods for running the project.
 
-1. Inline - Recommended method due to simplicity
+1. Inline - Recommended method due to simplicity:
     
     ```sh
     $ poetry run python3 -m squiddie
     ```
 
-2. Out-of-line - Useful for debugging
+2. Out-of-line - Useful for debugging:
 
     ```sh
     $ poetry shell
