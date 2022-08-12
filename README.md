@@ -62,13 +62,13 @@ Music - No description provided
 
 ### Configuration
 
-Firstly, it is necessary to update the environment and application files respectively
+Firstly, it is necessary to update the environment and application files respectively.
 
 ```sh
 $ cp .env_sample .env && cp application_sample.yaml application.yaml
 ```
 
-After copying over the sample files, set their values accordingly
+After copying over the sample files, set their values accordingly.
 
 ### Execution
 
@@ -85,7 +85,7 @@ LAVALINK_PORT = 2333
 ...
 ```
 
-Build image and run as daemon
+Build image and run as daemon:
 
 ```sh
 $ docker compose up -d
@@ -93,17 +93,17 @@ $ docker compose up -d
 
 ### Manual
 
-> Poetry is recommended to be used with Python version 3.10
+> Poetry is recommended to be used with Python version 3.10.
 
 #### Setup virtual env
 
-1. Install Poetry
+1. Install Poetry:
 
     ```sh
     $ pip3 install -U poetry
     ```
 
-2. Initialize Poetry
+2. Initialize Poetry:
    
     ```sh
     $ poetry init
@@ -113,13 +113,13 @@ $ docker compose up -d
 
 There are two methods for running the project.
 
-1. Inline - Recommended method due to simplicity
+1. Inline - Recommended method due to simplicity:
     
     ```sh
     $ poetry run python3 -m squiddie
     ```
 
-2. Out-of-line - Useful for debugging
+2. Out-of-line - Useful for debugging:
 
     ```sh
     $ poetry shell
