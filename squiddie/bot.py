@@ -53,7 +53,7 @@ def run() -> None:
     bot.run(
             status=Status.ONLINE,
             activity=Activity(
-                name="Squid in development",
+                name=os.environ["DISCORD_STATUS"],
                 type=ActivityType.WATCHING
                 )
             )
