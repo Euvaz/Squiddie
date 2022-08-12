@@ -22,8 +22,6 @@ services:
     tty: true
     depends_on:
       - lavalink
-    env_file:
-      - .env
     network_mode: host
 
   watchtower:
