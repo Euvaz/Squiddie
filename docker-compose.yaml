@@ -14,6 +14,7 @@ services:
     entrypoint: java -Xmx512m -jar Lavalink.jar
 
   squiddie:
+    container_name: squiddie
     build:
       context: .
       dockerfile: Dockerfile
@@ -26,6 +27,7 @@ services:
     network_mode: host
 
   watchtower:
+    container_name: watchtower
     image: v2tec/watchtower
     restart: on-failure:3
     volumes:
