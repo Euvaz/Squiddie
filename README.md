@@ -92,6 +92,14 @@ Build image and run as daemon:
 $ docker compose up -d
 ```
 
+If any changes are made to the environment file, the docker compose will need to be stopped, rebuilt, and started again:
+
+```sh
+$ docker compose down
+$ docker compose build
+$ docker compose up -d
+```
+
 ### Manual
 
 > Poetry is recommended to be used with Python version 3.10.

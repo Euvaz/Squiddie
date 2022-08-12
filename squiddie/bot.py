@@ -6,12 +6,13 @@ import lightbulb
 import concurrent.futures
 from lightbulb.ext import tasks
 from hikari import Intents, StartingEvent, StoppingEvent, Status, Activity, ActivityType
+from consts import DISCORD_TOKEN, DISCORD_STATUS, DEFAULT_GUILD_ID
 
 
 # Initialize bot
 bot = lightbulb.BotApp (
-        os.environ["DISCORD_TOKEN"],
-        default_enabled_guilds=int(os.environ["DEFAULT_GUILD_ID"]),
+        DISCORD_TOKEN,
+        default_enabled_guilds=int(DEFAULT_GUILD_ID),
         intents=Intents.ALL,
         help_slash_command=True,
         ignore_bots=True,
@@ -53,7 +54,7 @@ def run() -> None:
     bot.run(
             status=Status.ONLINE,
             activity=Activity(
-                name=os.environ["DISCORD_STATUS"],
+                name=DISCORD_STATUS,
                 type=ActivityType.WATCHING
                 )
             )
