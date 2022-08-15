@@ -7,15 +7,15 @@ Squiddie is a Discord chat bot intended to provide music player functionality, i
 
 ## Overview
 
-- [Usage](https://github.com/euvaz/squiddie#usage)
-- [Installation](https://github.com/euvaz/squiddie#installation)
-  - [Configuration](https://github.com/euvaz/squiddie#configuration)
-  - [Execution](https://github.com/euvaz/squiddie#execution)
-  - [Docker](https://github.com/euvaz/squiddie#docker)
-  - [Manual](https://github.com/euvaz/squiddie#manual)
-    - [Setup virtual env](https://github.com/euvaz/squiddie#setup-virtual-env)
-    - [Activate virtual env](https://github.com/euvaz/squiddie#activate-virtual-env)
-- [License](https://github.com/euvaz/squiddie#license)
+- [Usage](#usage)
+- [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Execution](#execution)
+  - [Docker](#docker)
+  - [Manual](#manual)
+    - [Setup virtual env](#setup-virtual-env)
+    - [Activate virtual env](#activate-virtual-env)
+- [License](#license)
 
 ## Usage
 
