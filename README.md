@@ -1,3 +1,6 @@
+
+![Squiddie Logo](img/squiddie-logo.png)
+
 # Squiddie
 
 Squiddie is a Discord chat bot intended to provide music player functionality, in response to numerous bots deprecating YouTube support. 
