@@ -230,7 +230,7 @@ async def leave(ctx: lightbulb.Context) -> None:
 
 @music_plugin.command()
 @lightbulb.option("query", "The name of the song (or url) that you want to play",
-                  modifier=lightbulb.OptionModifier.CONSUME_REST, required=True)
+                  modifier=lightbulb.OptionModifier.CONSUME_REST, required=True, autocomplete=True)
 @lightbulb.command("play", "searches for your song. (Please choose one type only.)", auto_defer=True,
                    pass_options=True)
 @lightbulb.implements(lightbulb.SlashCommand)
@@ -288,10 +288,10 @@ async def play(ctx: lightbulb.Context, query: str) -> None:
         raise e
 
 
-#@play.autocomplete("query")
-#async def play_autocomplete(opt: hikari.AutocompleteInteractionOption, inter: hikari.AutocompleteInteraction):
-#    query = await music_plugin.d.lavalink.auto_search_tracks(opt.value)
-#    return [track.info.title for track in query.tracks[:5]]
+@play.autocomplete("query")
+async def play_autocomplete(opt: hikari.AutocompleteInteractionOption, inter: hikari.AutocompleteInteraction):
+    query = await music_plugin.d.lavalink.auto_search_tracks(opt.value)
+    return [track.info.title for track in query.tracks[:5]]
 
 
 @music_plugin.command()
