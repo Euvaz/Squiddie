@@ -31,10 +31,3 @@ services:
       lavalink:
         condition: service_healthy
     network_mode: host
-
-  watchtower:
-    container_name: watchtower
-    image: v2tec/watchtower
-    restart: on-failure:3
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
