@@ -1,5 +1,5 @@
 
-![Squiddie Logo](img/squiddie-logo.png)
+![Squiddie Logo](img/squiddie-logo.svg)
 
 # Squiddie
 
